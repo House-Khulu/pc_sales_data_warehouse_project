@@ -1,0 +1,7 @@
+1. Data modeling
+2. Create two databases - pc_stg & pc_dwh
+3. Load data into pc_stg
+4. EDA
+5. Create dims and fact tables
+6. Populate our stg_dims_table_name, clean_dims_table, dwh_dims_table_name (This entire is done through stored procedures)
+7. Automate the process using an ETL pipeline
