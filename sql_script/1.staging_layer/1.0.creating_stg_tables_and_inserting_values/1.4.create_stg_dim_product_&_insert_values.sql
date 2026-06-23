@@ -20,11 +20,11 @@ IF OBJECT_ID('[stg_pc_sales].[dbo].[stg_dim_product]', 'U') IS NULL
 BEGIN
     CREATE TABLE [stg_pc_sales].[dbo].[stg_dim_product](
     [product_key] INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
-	[pc_make] [nvarchar](50) NOT NULL,
-	[pc_model] [nvarchar](50) NOT NULL,
-	[storage_type] [nvarchar](50) NOT NULL,
-	[RAM] [nvarchar](50) NOT NULL,
-	[storage_capacity] [nvarchar](50) NOT NULL,
+	[pc_make] VARCHAR (50) NOT NULL,
+	[pc_model] VARCHAR (50) NOT NULL,
+	[storage_type] VARCHAR (50) NOT NULL,
+	[RAM] VARCHAR (50) NOT NULL,
+	[storage_capacity] VARCHAR (50) NOT NULL,
 	[created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
     [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()
 );

@@ -16,8 +16,8 @@ IF OBJECT_ID('[stg_pc_sales].[dbo].[stg_dim_shop]', 'U') IS NULL
 BEGIN
     CREATE TABLE [stg_pc_sales].[dbo].[stg_dim_shop](
     [shop_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	[shop_name] [nvarchar](100) NOT NULL,
-	[shop_age] [nvarchar](100) NOT NULL,
+	[shop_name] VARCHAR  (100) NOT NULL,
+	[shop_age] VARCHAR  (100) NOT NULL,
     [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
     [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()
 );
