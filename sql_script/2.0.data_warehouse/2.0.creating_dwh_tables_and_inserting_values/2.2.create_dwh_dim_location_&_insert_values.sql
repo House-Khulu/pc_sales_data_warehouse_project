@@ -1,0 +1,62 @@
+--------------------------------
+--Checking for distinct location
+--------------------------------
+SELECT DISTINCT [Continent]
+      ,[Country_or_State]
+      ,[Province_or_City]
+      
+  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+ 
+
+/* =========================================
+   CREATE stg_dim_location TABLE (SAFE RERUN)
+   Database : stg_pc_sales
+   Schema   : dbo
+   ========================================= */
+
+IF OBJECT_ID('[stg_pc_sales].[dbo].[stg_dim_location]', 'U') IS NULL
+BEGIN
+
+    CREATE TABLE [stg_pc_sales].[dbo].[stg_dim_location] (
+
+        [location_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+        [continent] VARCHAR(100) NOT NULL,
+        [country_or_state] VARCHAR (100) NOT NULL,
+        [province_or_city] VARCHAR (100) NOT NULL,
+        [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
+        [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()
+    );
+
+END;
+
+/* =========================================
+   INSERT INTO stg_dim_location (SAFE RERUN)
+   ========================================= */
+
+INSERT INTO [stg_pc_sales].[dbo].[stg_dim_location]
+(
+    [continent],
+    [country_or_state],
+    [province_or_city]
+)
+
+SELECT DISTINCT
+      r.continent,
+      r.country_or_state,
+      r.province_or_city
+FROM [stg_pc_sales].[dbo].[raw_pc_data] r
+WHERE NOT EXISTS
+(
+    SELECT 1
+    FROM [stg_pc_sales].[dbo].[stg_dim_location] l
+    WHERE l.continent = r.continent
+      AND l.country_or_state = r.country_or_state
+      AND l.province_or_city = r.province_or_city
+);
+GO
+
+-----------------------
+--View stg_dim_location
+-----------------------
+
+SELECT * FROM [stg_pc_sales].[dbo].[stg_dim_location];
