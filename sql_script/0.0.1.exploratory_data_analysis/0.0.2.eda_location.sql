@@ -35,6 +35,13 @@
   FROM [stg_pc_sales].[dbo].[raw_pc_data]
 
 
+
+  SELECT DISTINCT [Continent]
+          ,[Country_or_State]
+          ,[Province_or_City]
+  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+
+
   SELECT * FROM [stg_pc_sales].[dbo].[raw_pc_data];
 
 
@@ -58,23 +65,52 @@
   ===================================*/
 
 
-  -----------------------------------------
-  --Checking for duplicates from continents
-  -----------------------------------------
+  -----------------------------------------------------------------------
+  --Checking for Nulls from continent,Country_or_State & Province_or_City
+  -----------------------------------------------------------------------
   SELECT COUNT(*) AS null_count
   FROM [stg_pc_sales].[dbo].[raw_pc_data]
   WHERE Continent IS NULL;
 
-   -----------------------------------------
-  --Checking for duplicates from Country_or_State
-  -----------------------------------------
+ 
   SELECT COUNT(*) AS null_count
   FROM [stg_pc_sales].[dbo].[raw_pc_data]
   WHERE Country_or_State IS NULL;
   
-   -----------------------------------------
-  --Checking for duplicates from Province_or_City
-  -----------------------------------------
+
   SELECT COUNT(*) AS null_count
   FROM [stg_pc_sales].[dbo].[raw_pc_data]
   WHERE Province_or_City IS NULL;
+
+
+  /*======================================
+  Insight: No NULLS from the above queries
+  ========================================*/
+  
+  /*===================================================================================
+  Note: If the original value is not equal to the same values after trimming, it means
+  there are spaces. If there are no results after running the query, it means 
+  there are no spaces
+  =====================================================================================*/
+
+
+  -----------------------------------------------------------------------------------
+  -- Checking for unwanted spaces from Continent, Province_or_City & Country_or_State
+  -----------------------------------------------------------------------------------
+
+  SELECT [Country_or_State]
+  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  WHERE [Country_or_State] != TRIM([Country_or_State]);
+  
+
+  SELECT [Continent]
+  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  WHERE [Continent] != TRIM([Continent]);
+
+  SELECT [Province_or_City]
+  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  WHERE [Province_or_City] != TRIM([Province_or_City]);
+
+  /*=================================================
+  Insight: There are no spaces from the above queries
+  ===================================================*/

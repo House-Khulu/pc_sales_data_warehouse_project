@@ -34,34 +34,74 @@
   FROM [stg_pc_sales].[dbo].[raw_pc_data]
 
 
+  SELECT DISTINCT
+         [Customer_Name]
+        ,[Customer_Surname]
+        ,[Customer_Contact_Number]
+        ,[Customer_Email_Address]
+    FROM [stg_pc_sales].[dbo].[raw_pc_data]
+
+
   SELECT * FROM [stg_pc_sales].[dbo].[raw_pc_data];
 
-
-   -----------------------------------------------------
-  -- Checking distinct customer_name & customer_surname
-  -----------------------------------------------------
-  SELECT DISTINCT (customer_name) FROM [stg_pc_sales].[dbo].[raw_pc_data];
-
   
-  SELECT COUNT(customer_name) N FROM [stg_pc_sales].[dbo].[raw_pc_data];
+  SELECT COUNT(customer_name) number_of_c_names FROM [stg_pc_sales].[dbo].[raw_pc_data];
+    
+  SELECT COUNT(Customer_Surname) number_of_s_names FROM [stg_pc_sales].[dbo].[raw_pc_data];
 
-  --------------------------------------------
-  --Checking for duplicates from customer_name
-  --------------------------------------------
+  -------------------------------------------------------------------------------------------------------------
+  --Checking for NULLS from customer_name and customer_surname,customer_contact_number & Customer_email_address
+  -------------------------------------------------------------------------------------------------------------
   SELECT COUNT(*) AS null_count
   FROM [stg_pc_sales].[dbo].[raw_pc_data]
   WHERE customer_name IS NULL;
 
-  SELECT DISTINCT (customer_surname) FROM [stg_pc_sales].[dbo].[raw_pc_data];
-
-  SELECT COUNT(Customer_Surname) s FROM [stg_pc_sales].[dbo].[raw_pc_data];
-
-  --------------------------------------------
-  --Checking for duplicates from customer_name
-  --------------------------------------------
   SELECT COUNT(*) AS null_count
   FROM [stg_pc_sales].[dbo].[raw_pc_data]
-  WHERE Customer_Surname IS NULL;
+  WHERE customer_surname IS NULL;
 
-  /*Insight:
-  - We have no nulls from the customer's Name & Surname */
+  SELECT COUNT(*) AS null_count
+  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  WHERE Customer_Contact_Number IS NULL;
+
+  SELECT COUNT(*) AS null_count
+  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  WHERE Customer_Email_Address IS NULL;
+
+  /*=====================================
+  Insight:No NULLS from the above queries
+  =======================================*/
+
+
+  /*===================================================================================
+  Note: If the original value is not equal to the same values after trimming, it means
+  there are spaces. If there are no results after running the query, it means 
+  there are no spaces
+  =====================================================================================*/
+
+
+  -----------------------------------------------------------
+  -- Checking for unwanted space on Customer name and surname
+  -----------------------------------------------------------
+
+  SELECT [Customer_Name]
+  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  WHERE [Customer_Name] != TRIM([Customer_Name]);
+
+  SELECT [Customer_Surname]
+  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  WHERE [Customer_Surname] != TRIM([Customer_Surname]);
+
+  
+  SELECT [Customer_Contact_Number]
+  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  WHERE [Customer_Contact_Number] != TRIM([Customer_Contact_Number]);
+
+  SELECT [Customer_Email_Address]
+  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  WHERE [Customer_Email_Address] != TRIM([Customer_Email_Address]);
+
+  /*==================================================
+  Insight: there are no spaces from the above queries
+  ====================================================*/
+

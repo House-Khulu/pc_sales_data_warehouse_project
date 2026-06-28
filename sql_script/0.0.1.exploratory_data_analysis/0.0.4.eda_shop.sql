@@ -34,9 +34,16 @@
   FROM [stg_pc_sales].[dbo].[raw_pc_data]
 
 
+
+  SELECT DISTINCT [Shop_Name]
+        ,[Shop_Age]
+   FROM [stg_pc_sales].[dbo].[raw_pc_data]
+
+
+
   SELECT * FROM [stg_pc_sales].[dbo].[raw_pc_data];
 
-    -------------------------------------------
+  -------------------------------------------
   -- Checking distinct Shop_name and Shop_age
   -------------------------------------------
   SELECT DISTINCT (Shop_Name) FROM [stg_pc_sales].[dbo].[raw_pc_data];
@@ -48,3 +55,41 @@
   - 17 distinct Shop_names
   - 10 distinct shop_ages 
   ========================*/
+
+  ----------------------------------------------
+  --Checking for NULLS from Shop_name & Shop_Age
+  ----------------------------------------------
+  SELECT COUNT(*) AS null_count
+  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  WHERE [Shop_Name] IS NULL;
+
+  SELECT COUNT(*) AS null_count
+  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  WHERE [Shop_Age] IS NULL;
+
+  /*=====================================
+  Insight:No NULLS from the above queries
+  =======================================*/
+
+  /*===================================================================================
+  Note: If the original value is not equal to the same values after trimming, it means
+  there are spaces. If there are no results after running the query, it means 
+  there are no spaces
+  =====================================================================================*/
+
+
+  --------------------------------------------------------
+  -- Checking for unwanted space from shop_name & shop_age
+  --------------------------------------------------------
+
+  SELECT [Shop_Name]
+  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  WHERE [Shop_Name] != TRIM([Shop_Name]);
+
+  SELECT [Shop_Age]
+  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  WHERE [Shop_Age] != TRIM([Shop_Age]);
+
+  /*==================================================
+  Insight: there are no spaces from the above queries
+  ====================================================*/

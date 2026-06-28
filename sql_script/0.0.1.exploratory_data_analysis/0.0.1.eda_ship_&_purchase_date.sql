@@ -35,6 +35,11 @@
   FROM [stg_pc_sales].[dbo].[raw_pc_data]
 
 
+  SELECT [Purchase_Date]
+        ,[Ship_Date]
+  FROM [stg_pc_sales].[dbo].[raw_pc_data];
+
+
   SELECT * FROM [stg_pc_sales].[dbo].[raw_pc_data];
 
 
@@ -49,20 +54,6 @@
   -The purchase data has 10 000 records and so does the total records in the dataset, 
   meaning every transaction row has a purchase date assigned to it.
   ===================================================================================*/
-
-
-  --------------------------------------
-  --Checking for distinct purchase dates
-  --------------------------------------
-  SELECT DISTINCT [Purchase_Date]
-  FROM [stg_pc_sales].[dbo].[raw_pc_data]
-  ORDER BY [Purchase_Date] DESC;
-
-  /*================
-  Insight: 
-   - 1096 records 
-   =================*/
-
 
 
   --------------------------------------------------
@@ -108,36 +99,20 @@
 
   SELECT [Ship_Date] FROM [stg_pc_sales].[dbo].[raw_pc_data];
 
-  /*===========================================
+  ----------------------------
+  --Counting the number of N/A
+  ----------------------------
+
+  SELECT [Ship_Date], COUNT(*) AS number_of_counts
+  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  WHERE [Ship_Date] = 'n/a'
+  GROUP BY [Ship_Date]
+  
+
+  /*===================================================================
   Insight: 
-  -We have 10 000 rows but with n/a ship dates 
-  =============================================*/
-
-
-
-  ------------------------------
-  --Counting distinct ship dates
-  ------------------------------
-  SELECT DISTINCT (Ship_Date) FROM [stg_pc_sales].[dbo].[raw_pc_data];
-
-  /*================================
-  Insight: 
-  -We have 1110 distinct ship dates 
-  ==================================*/
-
-
-
-  --------------------------------------
-  --Couting the number of n/a ship dates
-  --------------------------------------
-  SELECT COUNT(ShIp_date) AS no_date FROM [stg_pc_sales].[dbo].[raw_pc_data]
-  WHERE Ship_Date = 'N/A';
-
-  /*================================
-  Insight: 
-  -We have 5071 unknown ship dates 
-  ==================================*/
-
+  -We have 10 000 rows that consists of 5071 number of n/a  ship dates 
+  ====================================================================*/
 
 
   ----------------------------------------------------------
@@ -152,13 +127,6 @@
    Insight:
   - The ship date ranges from 2021-03-12 to unknown date
   ======================================================*/
-
-
-
-  SELECT DISTINCT [Ship_Date]
-  FROM [stg_pc_sales].[dbo].[raw_pc_data]
-  ORDER BY Ship_Date DESC;
-
 
   /*========================================================================
   Insight:
@@ -187,3 +155,20 @@
    Insight:
   - No nulls 
   ===========*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
