@@ -2,18 +2,63 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>pc_sales_etl_pipelines</Name>
-    <LastWriteTime>2026-06-23T07:21:56.6774774Z</LastWriteTime>
+    <LastWriteTime>2026-06-30T06:57:06.6549246Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
-      <Name>0.1.load_raw_data_into_stg.dtsx</Name>
-      <LastWriteTime>2026-06-23T07:21:32.2732431Z</LastWriteTime>
+      <Name>0.0.master.dtsx</Name>
+      <LastWriteTime>2026-06-30T05:57:26.9591271Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>1.1.create_dim_location.dtsx</Name>
-      <LastWriteTime>2026-06-23T09:10:34.211955Z</LastWriteTime>
+      <Name>0.1.load_raw_data.dtsx</Name>
+      <LastWriteTime>2026-06-30T07:14:33.5815313Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.2.create_dim_date.dtsx</Name>
+      <LastWriteTime>2026-06-30T02:42:57.8342361Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.3.create_dim_location.dtsx</Name>
+      <LastWriteTime>2026-06-30T04:26:12.4077681Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.4.create_dim_customer.dtsx</Name>
+      <LastWriteTime>2026-06-30T03:00:32.370696Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.5.create_dim_product.dtsx</Name>
+      <LastWriteTime>2026-06-30T03:06:27.7545691Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.6.create_dim_sales_person.dtsx</Name>
+      <LastWriteTime>2026-06-30T03:12:53.1716203Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.7.create_dim_shop.dtsx</Name>
+      <LastWriteTime>2026-06-30T03:21:14.2293124Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.8.create_dim_channel.dtsx</Name>
+      <LastWriteTime>2026-06-30T03:25:59.2114857Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.9.create_dim_payment_method.dtsx</Name>
+      <LastWriteTime>2026-06-30T03:31:48.8718373Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.10.create_dim_priority.dtsx</Name>
+      <LastWriteTime>2026-06-30T03:37:59.6371076Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
