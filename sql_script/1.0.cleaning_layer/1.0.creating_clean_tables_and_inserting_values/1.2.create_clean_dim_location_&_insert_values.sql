@@ -40,17 +40,17 @@ INSERT INTO [stg_pc_sales].[dbo].[clean_dim_location]
 )
 
 SELECT DISTINCT
-      s.continent,
-      s.country_or_state,
-      s.province_or_city
-FROM [stg_pc_sales].[dbo].[stg_dim_location] s
+      stg.continent,
+      stg.country_or_state,
+      stg.province_or_city
+FROM [stg_pc_sales].[dbo].[stg_dim_location] stg
 WHERE NOT EXISTS
 (
     SELECT 1
-    FROM [stg_pc_sales].[dbo].[clean_dim_location] c
-    WHERE c.continent = s.continent
-      AND c.country_or_state = s.country_or_state
-      AND c.province_or_city = s.province_or_city
+    FROM [stg_pc_sales].[dbo].[clean_dim_location] clean
+    WHERE clean.continent = stg.continent
+      AND clean.country_or_state = stg.country_or_state
+      AND clean.province_or_city = stg.province_or_city
 );
 GO
 

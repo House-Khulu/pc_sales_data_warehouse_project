@@ -45,21 +45,21 @@ INSERT INTO [stg_pc_sales].[dbo].[clean_dim_product](
 )
 
 SELECT DISTINCT
-            s.pc_make,
-		    s.pc_model,
-		    s.storage_type,
-		    s.RAM,
-	        s.storage_capacity
-FROM [stg_pc_sales].[dbo].[stg_dim_product] s
+            stg.pc_make,
+		    stg.pc_model,
+		    stg.storage_type,
+		    stg.RAM,
+	        stg.storage_capacity
+FROM [stg_pc_sales].[dbo].[stg_dim_product] stg
 WHERE NOT EXISTS
 (
     SELECT 1
-    FROM [stg_pc_sales].[dbo].[clean_dim_product] p
-	WHERE s.pc_make = P.pc_make
-	AND   s.pc_model = P.pc_model
-	AND   s.storage_type = P.storage_type
-	AND   s.RAM = P.RAM
-	AND   s.storage_capacity = P.storage_capacity
+    FROM [stg_pc_sales].[dbo].[clean_dim_product] clean
+	WHERE stg.pc_make = clean.pc_make
+	AND   stg.pc_model = clean.pc_model
+	AND   stg.storage_type = clean.storage_type
+	AND   stg.RAM = clean.RAM
+	AND   stg.storage_capacity = clean.storage_capacity
 );
 GO
 

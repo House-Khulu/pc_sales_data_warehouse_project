@@ -1,47 +1,47 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="6/25/2026 11:23:59 PM"
+  DTS:CreationDate="6/25/2026 11:24:37 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="MZII"
   DTS:CreatorName="MZII\DELL"
-  DTS:DTSID="{C9B6424B-6178-4B22-987F-5437EDAD45BD}"
+  DTS:DTSID="{8C1A7536-1228-4A6A-AA1F-EF4CE6364988}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="17.0.1016.0"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Package2"
+  DTS:ObjectName="Package7"
   DTS:PackageType="5"
   DTS:VersionBuild="2"
-  DTS:VersionGUID="{B4E7CDE3-C2B1-4DCA-9AB6-DD66F7159448}">
+  DTS:VersionGUID="{017F3A84-D5D3-4E1A-833E-C4AAC47A4680}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\create_clean_dim_customer"
+      DTS:refId="Package\create_clean_dim_payment_method"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="create_clean_dim_customer"
-      DTS:DTSID="{53424233-1d15-4b26-92b6-6d96930614bb}"
+      DTS:Description="create_clean_dim_payment_method"
+      DTS:DTSID="{e8675284-92bc-41b5-bdc8-c5f0355d541b}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="create_clean_dim_customer"
+      DTS:ObjectName="create_clean_dim_payment_method"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{491E7757-6EED-4130-9BA8-0900B8756E6E}"
-          SQLTask:SqlStatementSource="/* =========================================&#xA;   CREATE clean_dim_location TABLE (SAFE RERUN)&#xA;   Database : stg_pc_sales&#xA;   Schema   : dbo&#xA;   ========================================= */&#xA;&#xA;IF OBJECT_ID('[stg_pc_sales].[dbo].[clean_dim_location]', 'U') IS NULL&#xA;BEGIN&#xA;&#xA;    CREATE TABLE [stg_pc_sales].[dbo].[clean_dim_location] (&#xA;&#xA;        [location_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,&#xA;        [continent] VARCHAR(100) NOT NULL,&#xA;        [country_or_state] VARCHAR (100) NOT NULL,&#xA;        [province_or_city] VARCHAR (100) NOT NULL,&#xA;        [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),&#xA;        [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()&#xA;    );&#xA;&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;/* ================================================&#xA;   CREATE clean_dim_payment_method TABLE (SAFE RERUN)&#xA;   Database : stg_pc_sales&#xA;   Schema   : dbo&#xA;   ================================================ */&#xA;&#xA;   &#xA;IF OBJECT_ID('[stg_pc_sales].[dbo].[clean_dim_payment_method]', 'U') IS NULL&#xA;BEGIN&#xA;    CREATE TABLE [stg_pc_sales].[dbo].[clean_dim_payment_method](&#xA;    [payment_key] INT IDENTITY (1,1) PRIMARY KEY NOT NULL,&#xA;&#x9;[payment_method] VARCHAR (50) NOT NULL,&#xA;    [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),&#xA;    [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()&#xA;);&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\create_dim_customer"
+      DTS:refId="Package\create_dim_payment_method"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{5ade8619-e471-412d-a341-5076ce30bf6f}"
+      DTS:DTSID="{9cd64a6b-daa0-471b-8e31-12fca028b1a2}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="create_dim_customer"
+      DTS:ObjectName="create_dim_payment_method"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -50,84 +50,88 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\create_dwh_dim_customer"
+      DTS:refId="Package\create_dwh_dim_payment_method"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="create_dwh_dim_customer"
-      DTS:DTSID="{362DAFEC-0DA8-4903-9B3F-F250A21D9724}"
+      DTS:Description="create_dwh_dim_payment_method"
+      DTS:DTSID="{b9e8d26e-cc7b-4ca8-8cd7-7919d1d00f46}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="create_dwh_dim_customer"
+      DTS:ObjectName="create_dwh_dim_payment_method"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
-        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B5B92C94-CE3A-46D6-9187-33542DAFF1F4}"
+          SQLTask:SqlStatementSource="/* ================================================&#xA;   CREATE dwh_dim_payment_method TABLE (SAFE RERUN)&#xA;   Database : dwh_pc_sales&#xA;   Schema   : dbo&#xA;   ================================================ */&#xA;&#xA;   &#xA;IF OBJECT_ID('[dwh_pc_sales].[dbo].[dwh_dim_payment_method]', 'U') IS NULL&#xA;BEGIN&#xA;    CREATE TABLE [dwh_pc_sales].[dbo].[dwh_dim_payment_method](&#xA;    [payment_key] INT IDENTITY (1,1) PRIMARY KEY NOT NULL,&#xA;&#x9;[payment_method] VARCHAR (50) NOT NULL,&#xA;    [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),&#xA;    [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()&#xA;);&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\create_stg_dim_customer"
+      DTS:refId="Package\create_stg_dim_payment_method"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="create_stg_dim_customer"
-      DTS:DTSID="{d04c15cf-2f3f-4b73-aa14-e2b6f91f831b}"
+      DTS:Description="create_stg_dim_payment_method"
+      DTS:DTSID="{bafde9b4-0aba-4bc8-b94a-54b900deb6bc}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="create_stg_dim_customer"
+      DTS:ObjectName="create_stg_dim_payment_method"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{491E7757-6EED-4130-9BA8-0900B8756E6E}"
-          SQLTask:SqlStatementSource="/* =========================================&#xA;   CREATE stg_dim_location TABLE (SAFE RERUN)&#xA;   Database : stg_pc_sales&#xA;   Schema   : dbo&#xA;   ========================================= */&#xA;&#xA;IF OBJECT_ID('[stg_pc_sales].[dbo].[stg_dim_location]', 'U') IS NULL&#xA;BEGIN&#xA;&#xA;    CREATE TABLE [stg_pc_sales].[dbo].[stg_dim_location] (&#xA;&#xA;        [location_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,&#xA;        [continent] VARCHAR(100) NOT NULL,&#xA;        [country_or_state] VARCHAR (100) NOT NULL,&#xA;        [province_or_city] VARCHAR (100) NOT NULL,&#xA;        [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),&#xA;        [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()&#xA;    );&#xA;&#xA;END;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="/* ================================================&#xA;   CREATE stg_dim_payment_method TABLE (SAFE RERUN)&#xA;   Database : stg_pc_sales&#xA;   Schema   : dbo&#xA;   ================================================ */&#xA;&#xA;   &#xA;IF OBJECT_ID('[stg_pc_sales].[dbo].[stg_dim_payment_method]', 'U') IS NULL&#xA;BEGIN&#xA;    CREATE TABLE [stg_pc_sales].[dbo].[stg_dim_payment_method](&#xA;    [payment_key] INT IDENTITY (1,1) PRIMARY KEY NOT NULL,&#xA;&#x9;[payment_method] VARCHAR (50) NOT NULL,&#xA;    [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),&#xA;    [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()&#xA;);&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\load_data_into_clean_dim_customer"
+      DTS:refId="Package\load_data_into_clean_dim_payment_method"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="load_data_into_clean_dim_customer"
-      DTS:DTSID="{14c60220-d218-4220-a03a-097f71ff2661}"
+      DTS:Description="load_data_into_clean_dim_payment_method"
+      DTS:DTSID="{12a96415-5506-472d-9f8d-77ce36fcbf3b}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="load_data_into_clean_dim_customer"
+      DTS:ObjectName="load_data_into_clean_dim_payment_method"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{491E7757-6EED-4130-9BA8-0900B8756E6E}"
-          SQLTask:SqlStatementSource="/* =========================================&#xA;   INSERT INTO clean_dim_location (SAFE RERUN)&#xA;   ========================================= */&#xA;&#xA;INSERT INTO [stg_pc_sales].[dbo].[clean_dim_location]&#xA;(&#xA;    [continent],&#xA;    [country_or_state],&#xA;    [province_or_city]&#xA;)&#xA;&#xA;SELECT DISTINCT&#xA;      s.continent,&#xA;      s.country_or_state,&#xA;      s.province_or_city&#xA;FROM [stg_pc_sales].[dbo].[stg_dim_location] s&#xA;WHERE NOT EXISTS&#xA;(&#xA;    SELECT 1&#xA;    FROM [stg_pc_sales].[dbo].[clean_dim_location] c&#xA;    WHERE c.continent = s.continent&#xA;      AND c.country_or_state = s.country_or_state&#xA;      AND c.province_or_city = s.province_or_city&#xA;);&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="/* ===============================================&#xA;   INSERT INTO clean_dim_payment_method (SAFE RERUN)&#xA;   =============================================== */&#xA;&#xA;INSERT INTO [stg_pc_sales].[dbo].[clean_dim_payment_method]([payment_method])&#xA;&#xA;SELECT DISTINCT&#xA;           stg.payment_method&#xA;      FROM [stg_pc_sales].[dbo].[stg_dim_payment_method] stg&#xA;   WHERE NOT EXISTS&#xA;(&#xA;      SELECT 1&#xA;    FROM [stg_pc_sales].[dbo].[clean_dim_payment_method] clean&#xA;    WHERE stg.payment_method = clean.payment_method&#xA;&#xA; );&#xA; GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\load_data_into_dwh_dim_customer"
+      DTS:refId="Package\load_data_into_dwh_dim_payment_method"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="load_data_into_dwh_dim_customer"
-      DTS:DTSID="{F56E181E-DE6D-42C7-BAE7-E35DAEAE5810}"
+      DTS:Description="load_data_into_dwh_dim_payment_method"
+      DTS:DTSID="{346f656c-7eea-41ad-ba3b-9e88e2c2ff5d}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="load_data_into_dwh_dim_customer"
+      DTS:ObjectName="load_data_into_dwh_dim_payment_method"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
-        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B5B92C94-CE3A-46D6-9187-33542DAFF1F4}"
+          SQLTask:SqlStatementSource="/* ===============================================&#xA;   INSERT INTO dwh_dim_payment_method (SAFE RERUN)&#xA;   =============================================== */&#xA;&#xA;INSERT INTO [dwh_pc_sales].[dbo].[dwh_dim_payment_method]([payment_method])&#xA;&#xA;SELECT DISTINCT&#xA;           clean.payment_method&#xA;      FROM [stg_pc_sales].[dbo].[clean_dim_payment_method] clean&#xA;   WHERE NOT EXISTS&#xA;(&#xA;      SELECT 1&#xA;    FROM [dwh_pc_sales].[dbo].[dwh_dim_payment_method] dwh&#xA;    WHERE clean.payment_method = dwh.payment_method&#xA;&#xA; );&#xA; GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\load_data_into_stg_dim_customer"
+      DTS:refId="Package\load_data_into_stg_dim_payment_method"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="load_data_into_stg_dim_customer"
-      DTS:DTSID="{d8488d2b-15cc-4def-b65f-567ee5ce06a7}"
+      DTS:Description="load_data_into_stg_dim_payment_method"
+      DTS:DTSID="{07094cbc-5c49-4d56-904f-79bdfeaeca02}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="load_data_into_stg_dim_customer"
+      DTS:ObjectName="load_data_into_stg_dim_payment_method"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{491E7757-6EED-4130-9BA8-0900B8756E6E}"
-          SQLTask:SqlStatementSource="/* =========================================&#xA;   INSERT INTO stg_dim_location (SAFE RERUN)&#xA;   ========================================= */&#xA;&#xA;INSERT INTO [stg_pc_sales].[dbo].[stg_dim_location]&#xA;(&#xA;    [continent],&#xA;    [country_or_state],&#xA;    [province_or_city]&#xA;)&#xA;&#xA;SELECT DISTINCT&#xA;      r.continent,&#xA;      r.country_or_state,&#xA;      r.province_or_city&#xA;FROM [stg_pc_sales].[dbo].[raw_pc_data] r&#xA;WHERE NOT EXISTS&#xA;(&#xA;    SELECT 1&#xA;    FROM [stg_pc_sales].[dbo].[stg_dim_location] l&#xA;    WHERE l.continent = r.continent&#xA;      AND l.country_or_state = r.country_or_state&#xA;      AND l.province_or_city = r.province_or_city&#xA;);&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="/* ===============================================&#xA;   INSERT INTO stg_dim_payment_method (SAFE RERUN)&#xA;   =============================================== */&#xA;&#xA;INSERT INTO [stg_pc_sales].[dbo].[stg_dim_payment_method]([payment_method])&#xA;&#xA;SELECT DISTINCT&#xA;           r.payment_method&#xA;      FROM [stg_pc_sales].[dbo].[raw_pc_data] r&#xA;   WHERE NOT EXISTS&#xA;(&#xA;      SELECT 1&#xA;    FROM [stg_pc_sales].[dbo].[stg_dim_payment_method] pm&#xA;    WHERE r.payment_method = pm.payment_method&#xA;&#xA; );&#xA; GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -135,51 +139,51 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{09522bb2-e2b8-4d09-b631-c6df9d3404a4}"
-      DTS:From="Package\create_dim_customer"
+      DTS:DTSID="{60cae8a0-d4f3-43d3-8d35-55ab83f830e6}"
+      DTS:From="Package\create_dim_payment_method"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\create_stg_dim_customer" />
+      DTS:To="Package\create_stg_dim_payment_method" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{604d2bd2-324b-428b-89c0-53c09ddbcf62}"
-      DTS:From="Package\create_stg_dim_customer"
+      DTS:DTSID="{346a4ac4-fb7d-4656-83c0-729b8da21d0d}"
+      DTS:From="Package\create_stg_dim_payment_method"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\load_data_into_stg_dim_customer" />
+      DTS:To="Package\load_data_into_stg_dim_payment_method" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{2d4f4f28-12a4-4fdd-a5a6-e2dadc17cda4}"
-      DTS:From="Package\load_data_into_stg_dim_customer"
+      DTS:DTSID="{160e6aef-664e-4aac-9c45-d81a38fddab4}"
+      DTS:From="Package\load_data_into_stg_dim_payment_method"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
-      DTS:To="Package\create_clean_dim_customer" />
+      DTS:To="Package\create_clean_dim_payment_method" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{10aefb2e-a870-4819-86fc-a76eb8a54b51}"
-      DTS:From="Package\create_clean_dim_customer"
+      DTS:DTSID="{4678f477-8146-4345-9fc6-b0248a5d50c5}"
+      DTS:From="Package\create_clean_dim_payment_method"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
-      DTS:To="Package\load_data_into_clean_dim_customer" />
+      DTS:To="Package\load_data_into_clean_dim_payment_method" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
-      DTS:DTSID="{6844C186-ECCD-4BF4-937C-026F79F88B27}"
-      DTS:From="Package\load_data_into_clean_dim_customer"
+      DTS:DTSID="{789b0486-2658-4315-afda-ea0b0b7338f6}"
+      DTS:From="Package\load_data_into_clean_dim_payment_method"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
-      DTS:To="Package\create_dwh_dim_customer" />
+      DTS:To="Package\create_dwh_dim_payment_method" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
-      DTS:DTSID="{72F76CE6-99B5-4562-ADDE-7DCBABB62473}"
-      DTS:From="Package\create_dwh_dim_customer"
+      DTS:DTSID="{96556fdd-b51c-4f21-9cc9-fcd9fcdbcee7}"
+      DTS:From="Package\create_dwh_dim_payment_method"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
-      DTS:To="Package\load_data_into_dwh_dim_customer" />
+      DTS:To="Package\load_data_into_dwh_dim_payment_method" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -194,39 +198,47 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="212,41.6"
-          Id="Package\create_clean_dim_customer"
-          TopLeft="441.666642535065,122.199999150237" />
+          Size="254.4,41.6"
+          Id="Package\create_clean_dim_payment_method"
+          TopLeft="434.999976232649,122.199999150237" />
         <NodeLayout
-          Size="178.4,41.6"
-          Id="Package\create_dim_customer"
-          TopLeft="80.8333289167946,25.1333331585592" />
+          Size="216,41.6"
+          Id="Package\create_dim_payment_method"
+          TopLeft="55.8333302827342,25.1333331585596" />
         <NodeLayout
-          Size="212,41.6"
-          Id="Package\create_stg_dim_customer"
-          TopLeft="442.499975822867,25.1333331585589" />
+          Size="277.6,41.6"
+          Id="Package\create_dwh_dim_payment_method"
+          TopLeft="45.8333308291106,313.733331151671" />
         <NodeLayout
-          Size="259.2,41.6"
-          Id="Package\load_data_into_clean_dim_customer"
-          TopLeft="64.1666631607537,221.866665123834" />
+          Size="235.2,41.6"
+          Id="Package\create_stg_dim_payment_method"
+          TopLeft="435.83330952045,25.1333331585593" />
         <NodeLayout
-          Size="249.6,41.6"
-          Id="Package\load_data_into_stg_dim_customer"
-          TopLeft="67.4999963119626,123.933332471516" />
+          Size="295.2,41.6"
+          Id="Package\load_data_into_clean_dim_payment_method"
+          TopLeft="42.4999976779013,221.866665123834" />
+        <NodeLayout
+          Size="286.4,41.6"
+          Id="Package\load_data_into_dwh_dim_payment_method"
+          TopLeft="433.333309657045,305.933331205911" />
+        <NodeLayout
+          Size="291.2,41.6"
+          Id="Package\load_data_into_stg_dim_payment_method"
+          TopLeft="47.4999974047143,123.933332471516" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="259.233328916795,45.9333331585591">
+          TopLeft="271.833330282734,45.9333331585594">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="183.266646906072,0"
+              EndConnector="163.999979237716,0"
               Start="0,0"
-              End="175.766646906072,0">
+              End="156.499979237716,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="175.766646906072,0" />
+                    End="156.499979237716,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -237,13 +249,13 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="548.499975822867,66.7333331585589">
+          TopLeft="553.433309520451,66.7333331585593">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-356.199979510904,57.1999993129569"
+              EndConnector="-360.333312115736,57.1999993129569"
               Start="0,0"
-              End="-356.199979510904,49.6999993129569">
+              End="-360.333312115736,49.6999993129569">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -254,13 +266,13 @@
                     Point2="0,28.5999996564785"
                     Point3="-4,28.5999996564785" />
                   <mssgle:LineSegment
-                    End="-352.199979510904,28.5999996564785" />
+                    End="-356.333312115736,28.5999996564785" />
                   <mssgle:CubicBezierSegment
-                    Point1="-352.199979510904,28.5999996564785"
-                    Point2="-356.199979510904,28.5999996564785"
-                    Point3="-356.199979510904,32.5999996564785" />
+                    Point1="-356.333312115736,28.5999996564785"
+                    Point2="-360.333312115736,28.5999996564785"
+                    Point3="-360.333312115736,32.5999996564785" />
                   <mssgle:LineSegment
-                    End="-356.199979510904,49.6999993129569" />
+                    End="-360.333312115736,49.6999993129569" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -271,18 +283,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="317.099996311963,143.866665810876">
+          TopLeft="338.699997404714,143.866665810877">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="124.566646223102,0"
+              EndConnector="96.2999788279342,0"
               Start="0,0"
-              End="117.066646223102,0">
+              End="88.7999788279342,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="117.066646223102,0" />
+                    End="88.7999788279342,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -293,13 +305,13 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="547.666642535065,163.799999150237">
+          TopLeft="562.199976232649,163.799999150237">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-353.899979374311,58.0666659735972"
+              EndConnector="-372.099978554747,58.0666659735973"
               Start="0,0"
-              End="-353.899979374311,50.5666659735972">
+              End="-372.099978554747,50.5666659735973">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -310,13 +322,13 @@
                     Point2="0,29.0333329867986"
                     Point3="-4,29.0333329867986" />
                   <mssgle:LineSegment
-                    End="-349.899979374311,29.0333329867986" />
+                    End="-368.099978554747,29.0333329867986" />
                   <mssgle:CubicBezierSegment
-                    Point1="-349.899979374311,29.0333329867986"
-                    Point2="-353.899979374311,29.0333329867986"
-                    Point3="-353.899979374311,33.0333329867986" />
+                    Point1="-368.099978554747,29.0333329867986"
+                    Point2="-372.099978554747,29.0333329867986"
+                    Point3="-372.099978554747,33.0333329867986" />
                   <mssgle:LineSegment
-                    End="-353.899979374311,50.5666659735972" />
+                    End="-372.099978554747,50.5666659735973" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -325,28 +337,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="258.4,41.6"
-          Id="Package\create_dwh_dim_customer"
-          TopLeft="69.9999961753688,306.799997866551" />
-        <NodeLayout
-          Size="242.4,41.6"
-          Id="Package\load_data_into_dwh_dim_customer"
-          TopLeft="479.166640486156,306.799997866551" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="196.483329668061,263.466665123834">
+          TopLeft="187.366664253506,263.466665123834">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43.3333327427172"
+              EndConnector="0,50.2666660278369"
               Start="0,0"
-              End="0,35.8333327427172">
+              End="0,42.7666660278369">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.8333327427172" />
+                    End="0,42.7666660278369" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -357,18 +361,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="328.399996175369,327.599997866551">
+          TopLeft="323.433330829111,330.633331178791">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="150.766644310787,0"
+              EndConnector="109.899978827935,0"
               Start="0,0"
-              End="143.266644310787,0">
+              End="102.399978827935,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="143.266644310787,0" />
+                    End="102.399978827935,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

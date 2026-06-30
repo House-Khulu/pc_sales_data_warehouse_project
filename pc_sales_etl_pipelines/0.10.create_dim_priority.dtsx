@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package8"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{C72F0914-D655-43E8-BC10-CBB1C1D91719}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{4069FAAE-B1FE-4A89-A0DB-0C00B7C0B1E9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -31,7 +31,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{491E7757-6EED-4130-9BA8-0900B8756E6E}"
-          SQLTask:SqlStatementSource="/* =========================================&#xA;   CREATE clean_dim_location TABLE (SAFE RERUN)&#xA;   Database : stg_pc_sales&#xA;   Schema   : dbo&#xA;   ========================================= */&#xA;&#xA;IF OBJECT_ID('[stg_pc_sales].[dbo].[clean_dim_location]', 'U') IS NULL&#xA;BEGIN&#xA;&#xA;    CREATE TABLE [stg_pc_sales].[dbo].[clean_dim_location] (&#xA;&#xA;        [location_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,&#xA;        [continent] VARCHAR(100) NOT NULL,&#xA;        [country_or_state] VARCHAR (100) NOT NULL,&#xA;        [province_or_city] VARCHAR (100) NOT NULL,&#xA;        [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),&#xA;        [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()&#xA;    );&#xA;&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="/* ================================================&#xA;   CREATE clean_dim_priority TABLE (SAFE RERUN)&#xA;   Database : stg_pc_sales&#xA;   Schema   : dbo&#xA;   ================================================ */&#xA;&#xA;IF OBJECT_ID('[stg_pc_sales].[dbo].[clean_dim_priority]', 'U') IS NULL&#xA;BEGIN&#xA;    CREATE TABLE [stg_pc_sales].[dbo].[clean_dim_priority](&#xA;    [priority_key] INT IDENTITY (1,1) PRIMARY KEY NOT NULL,&#xA;&#x9;[priority] VARCHAR (50) NOT NULL,&#xA;    [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),&#xA;    [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()&#xA;&#xA;);&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -61,7 +61,9 @@
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
-        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B5B92C94-CE3A-46D6-9187-33542DAFF1F4}"
+          SQLTask:SqlStatementSource="/* ================================================&#xA;   CREATE dwh_dim_priority TABLE (SAFE RERUN)&#xA;   Database : dwh_pc_sales&#xA;   Schema   : dbo&#xA;   ================================================ */&#xA;&#xA;IF OBJECT_ID('[dwh_pc_sales].[dbo].[dwh_dim_priority]', 'U') IS NULL&#xA;BEGIN&#xA;    CREATE TABLE [dwh_pc_sales].[dbo].[dwh_dim_priority](&#xA;    [priority_key] INT IDENTITY (1,1) PRIMARY KEY NOT NULL,&#xA;&#x9;[priority] VARCHAR (50) NOT NULL,&#xA;    [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),&#xA;    [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()&#xA;&#xA;);&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -78,7 +80,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{491E7757-6EED-4130-9BA8-0900B8756E6E}"
-          SQLTask:SqlStatementSource="/* =========================================&#xA;   CREATE stg_dim_location TABLE (SAFE RERUN)&#xA;   Database : stg_pc_sales&#xA;   Schema   : dbo&#xA;   ========================================= */&#xA;&#xA;IF OBJECT_ID('[stg_pc_sales].[dbo].[stg_dim_location]', 'U') IS NULL&#xA;BEGIN&#xA;&#xA;    CREATE TABLE [stg_pc_sales].[dbo].[stg_dim_location] (&#xA;&#xA;        [location_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,&#xA;        [continent] VARCHAR(100) NOT NULL,&#xA;        [country_or_state] VARCHAR (100) NOT NULL,&#xA;        [province_or_city] VARCHAR (100) NOT NULL,&#xA;        [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),&#xA;        [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()&#xA;    );&#xA;&#xA;END;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="/* ================================================&#xA;   CREATE stg_dim_priority TABLE (SAFE RERUN)&#xA;   Database : stg_pc_sales&#xA;   Schema   : dbo&#xA;   ================================================ */&#xA;&#xA;IF OBJECT_ID('[stg_pc_sales].[dbo].[stg_dim_priority]', 'U') IS NULL&#xA;BEGIN&#xA;    CREATE TABLE [stg_pc_sales].[dbo].[stg_dim_priority](&#xA;    [priority_key] INT IDENTITY (1,1) PRIMARY KEY NOT NULL,&#xA;&#x9;[priority] VARCHAR (50) NOT NULL,&#xA;    [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),&#xA;    [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()&#xA;&#xA;);&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -95,7 +97,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{491E7757-6EED-4130-9BA8-0900B8756E6E}"
-          SQLTask:SqlStatementSource="/* =========================================&#xA;   INSERT INTO clean_dim_location (SAFE RERUN)&#xA;   ========================================= */&#xA;&#xA;INSERT INTO [stg_pc_sales].[dbo].[clean_dim_location]&#xA;(&#xA;    [continent],&#xA;    [country_or_state],&#xA;    [province_or_city]&#xA;)&#xA;&#xA;SELECT DISTINCT&#xA;      s.continent,&#xA;      s.country_or_state,&#xA;      s.province_or_city&#xA;FROM [stg_pc_sales].[dbo].[stg_dim_location] s&#xA;WHERE NOT EXISTS&#xA;(&#xA;    SELECT 1&#xA;    FROM [stg_pc_sales].[dbo].[clean_dim_location] c&#xA;    WHERE c.continent = s.continent&#xA;      AND c.country_or_state = s.country_or_state&#xA;      AND c.province_or_city = s.province_or_city&#xA;);&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="/* =========================================&#xA;   INSERT INTO clean_dim_priority (SAFE RERUN)&#xA;   ========================================= */&#xA;&#xA;INSERT INTO [stg_pc_sales].[dbo].[clean_dim_priority]&#xA;            ([priority])&#xA;SELECT DISTINCT&#xA;     &#xA;     stg.priority&#xA;FROM [stg_pc_sales].[dbo].[stg_dim_priority] stg&#xA;WHERE NOT EXISTS&#xA;(&#xA;SELECT 1&#xA;FROM [stg_pc_sales].[dbo].[clean_dim_priority] clean&#xA;WHERE stg.priority = clean.priority&#xA;&#xA;);&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -110,7 +112,9 @@
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
-        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B5B92C94-CE3A-46D6-9187-33542DAFF1F4}"
+          SQLTask:SqlStatementSource="/* =========================================&#xA;   INSERT INTO dwh_dim_priority (SAFE RERUN)&#xA;   ========================================= */&#xA;&#xA;INSERT INTO [dwh_pc_sales].[dbo].[dwh_dim_priority]&#xA;            ([priority])&#xA;SELECT DISTINCT&#xA;     &#xA;     clean.priority&#xA;FROM [stg_pc_sales].[dbo].[stg_dim_priority] clean&#xA;WHERE NOT EXISTS&#xA;(&#xA;SELECT 1&#xA;FROM [dwh_pc_sales].[dbo].[dwh_dim_priority] dwh&#xA;WHERE clean.priority = dwh.priority&#xA;&#xA;);&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -127,7 +131,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{491E7757-6EED-4130-9BA8-0900B8756E6E}"
-          SQLTask:SqlStatementSource="/* =========================================&#xA;   INSERT INTO stg_dim_location (SAFE RERUN)&#xA;   ========================================= */&#xA;&#xA;INSERT INTO [stg_pc_sales].[dbo].[stg_dim_location]&#xA;(&#xA;    [continent],&#xA;    [country_or_state],&#xA;    [province_or_city]&#xA;)&#xA;&#xA;SELECT DISTINCT&#xA;      r.continent,&#xA;      r.country_or_state,&#xA;      r.province_or_city&#xA;FROM [stg_pc_sales].[dbo].[raw_pc_data] r&#xA;WHERE NOT EXISTS&#xA;(&#xA;    SELECT 1&#xA;    FROM [stg_pc_sales].[dbo].[stg_dim_location] l&#xA;    WHERE l.continent = r.continent&#xA;      AND l.country_or_state = r.country_or_state&#xA;      AND l.province_or_city = r.province_or_city&#xA;);&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="/* =========================================&#xA;   INSERT INTO stg_dim_priority (SAFE RERUN)&#xA;   ========================================= */&#xA;&#xA;INSERT INTO [stg_pc_sales].[dbo].[stg_dim_priority]&#xA;            ([priority])&#xA;SELECT DISTINCT&#xA;     &#xA;     r.priority&#xA;FROM [stg_pc_sales].[dbo].[raw_pc_data] r&#xA;WHERE NOT EXISTS&#xA;(&#xA;SELECT 1&#xA;FROM [stg_pc_sales].[dbo].[stg_dim_priority] Pr&#xA;WHERE r.priority = pr.priority&#xA;&#xA;);&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -202,6 +206,10 @@
           Id="Package\create_dim_priority"
           TopLeft="83.3333287802017,27.7333331404795" />
         <NodeLayout
+          Size="241.6,41.6"
+          Id="Package\create_dwh_dim_priority"
+          TopLeft="74.1666626143799,313.733331151671" />
+        <NodeLayout
           Size="186.4,41.6"
           Id="Package\create_stg_dim_priority"
           TopLeft="463.333308017918,27.7333331404792" />
@@ -210,17 +218,35 @@
           Id="Package\load_data_into_clean_dim_priority"
           TopLeft="69.9999961753688,224.466665105754" />
         <NodeLayout
-          Size="250.4,41.6"
-          Id="Package\load_data_into_stg_dim_priority"
-          TopLeft="51.6666638437255,126.533332453436" />
-        <NodeLayout
-          Size="241.6,41.6"
-          Id="Package\create_dwh_dim_priority"
-          TopLeft="74.1666626143799,313.733331151671" />
-        <NodeLayout
           Size="232,41.6"
           Id="Package\load_data_into_dwh_dim_priority"
           TopLeft="447.49997554968,309.399997848471" />
+        <NodeLayout
+          Size="250.4,41.6"
+          Id="Package\load_data_into_stg_dim_priority"
+          TopLeft="51.6666638437255,126.533332453436" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="250.533328780202,48.5333331404794">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="212.799979237716,0"
+              Start="0,0"
+              End="205.299979237716,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="205.299979237716,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="556.533308017918,69.3333331404792">
@@ -347,28 +373,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="124.2333129353,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="250.533328780202,48.5333331404794">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="212.799979237716,0"
-              Start="0,0"
-              End="205.299979237716,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="205.299979237716,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

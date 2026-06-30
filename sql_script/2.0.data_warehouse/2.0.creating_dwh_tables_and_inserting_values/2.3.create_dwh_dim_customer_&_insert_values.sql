@@ -8,19 +8,19 @@ SELECT DISTINCT
       ,[Customer_Contact_Number]
       ,[Customer_Email_Address]
   
-  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  FROM [stg_pc_sales].[dbo].[clean_dim_customer]
 
 
 /* =========================================
-   CREATE stg_dim_customer TABLE (SAFE RERUN)
-   Database : stg_pc_sales
+   CREATE dwh_dim_customer TABLE (SAFE RERUN)
+   Database : dwh_pc_sales
    Schema   : dbo
    ========================================= */
 
-IF OBJECT_ID('[stg_pc_sales].[dbo].[stg_dim_customer]', 'U') IS NULL
+IF OBJECT_ID('[dwh_pc_sales].[dbo].[dwh_dim_customer]', 'U') IS NULL
 BEGIN
 
-CREATE TABLE [stg_pc_sales].[dbo].[stg_dim_customer](
+CREATE TABLE [dwh_pc_sales].[dbo].[dwh_dim_customer](
     [customer_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	[customer_name] VARCHAR (250) NOT NULL,
 	[customer_surname] VARCHAR (250) NOT NULL,
@@ -33,11 +33,11 @@ CREATE TABLE [stg_pc_sales].[dbo].[stg_dim_customer](
 END;
 
 /* =========================================
-   INSERT INTO stg_dim_customer (SAFE RERUN)
+   INSERT INTO dwh_dim_customer (SAFE RERUN)
    ========================================= */
 
    
-INSERT INTO [stg_pc_sales].[dbo].[stg_dim_customer] (
+INSERT INTO [dwh_pc_sales].[dbo].[dwh_dim_customer] (
 
     customer_name,
     customer_surname,
@@ -47,23 +47,23 @@ INSERT INTO [stg_pc_sales].[dbo].[stg_dim_customer] (
 )
 SELECT DISTINCT
       
-      r.customer_name,
-      r.customer_surname,
-      r.customer_contact_number,
-      r.customer_email_address
-FROM [stg_pc_sales].[dbo].[raw_pc_data] r
+      clean.customer_name,
+      clean.customer_surname,
+      clean.customer_contact_number,
+      clean.customer_email_address
+FROM [stg_pc_sales].[dbo].[clean_dim_customer] clean
 WHERE NOT EXISTS
 (
     SELECT 1
-    FROM [stg_pc_sales].[dbo].[stg_dim_customer] c
-    WHERE r.customer_name = c.customer_name
-    AND   r.customer_surname = C.customer_surname
-    AND   r.customer_email_address =  C.customer_email_address
+    FROM [dwh_pc_sales].[dbo].[dwh_dim_customer] dwh
+    WHERE clean.customer_name = dwh.customer_name
+    AND   clean.customer_surname = dwh.customer_surname
+    AND   clean.customer_email_address =  dwh.customer_email_address
 );
 GO
 
 -----------------------
---View stg_dim_customer
+--View dwh_dim_customer
 -----------------------
 
-SELECT * FROM [stg_pc_sales].[dbo].[stg_dim_customer];
+SELECT * FROM [dwh_pc_sales].[dbo].[dwh_dim_customer];

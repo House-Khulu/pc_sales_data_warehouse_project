@@ -33,13 +33,13 @@ INSERT INTO [stg_pc_sales].[dbo].[clean_dim_priority]
             ([priority])
 SELECT DISTINCT
      
-     r.priority
-FROM [stg_pc_sales].[dbo].[stg_dim_priority] r
+     stg.priority
+FROM [stg_pc_sales].[dbo].[stg_dim_priority] stg
 WHERE NOT EXISTS
 (
 SELECT 1
-FROM [stg_pc_sales].[dbo].[clean_dim_priority] Pr
-WHERE r.priority = pr.priority
+FROM [stg_pc_sales].[dbo].[clean_dim_priority] clean
+WHERE stg.priority = clean.priority
 
 );
 GO

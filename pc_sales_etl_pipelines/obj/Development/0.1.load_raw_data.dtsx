@@ -1,26 +1,27 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="6/22/2026 11:53:36 PM"
+  DTS:CreationDate="6/29/2026 10:26:42 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="MZII"
   DTS:CreatorName="MZII\DELL"
-  DTS:DTSID="{32472D70-BA36-41D5-A995-0D8CB6D0F16D}"
+  DTS:DTSID="{238DEFD3-D13C-471A-8BDD-D35CF4687534}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="17.0.1016.0"
   DTS:LocaleID="1033"
-  DTS:ObjectName="0 1 load_raw_data_into_stg"
+  DTS:ObjectName="0 1 load_raw_data"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{FA69C11D-5D02-4EAC-B97D-BBEFF1504982}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{C704CFC8-D980-43DE-9FDA-6F81E7404538}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:refId="Package.ConnectionManagers[csv_pc_sales_data_file]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{DFBC4259-C7E6-49AA-90FF-77896081A1C6}"
-      DTS:ObjectName="Flat File Connection Manager">
+      DTS:Description="csv_pc_sales_data_file"
+      DTS:DTSID="{DF783B10-A055-42F2-825B-4B6792736067}"
+      DTS:ObjectName="csv_pc_sales_data_file">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -39,7 +40,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Continent"
-              DTS:DTSID="{A53E59CB-601C-4F5A-BFCC-A914A0C1AE5D}"
+              DTS:DTSID="{17FC8685-C0F3-4D09-9ED8-4BE9C6B65769}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -47,8 +48,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Country or State"
-              DTS:DTSID="{8451FC2B-1890-4FFC-8D45-83964E7EB3A7}"
+              DTS:ObjectName="Country_or_State"
+              DTS:DTSID="{21A7AAAD-C0A7-4C91-BE8C-CE5191F851A9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -56,8 +57,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Province or City"
-              DTS:DTSID="{550C5919-9268-4D2E-BB86-395AF1DA24B0}"
+              DTS:ObjectName="Province_or_City"
+              DTS:DTSID="{2FAD2C07-2D24-4E5A-9D7F-E53FC5DEB73D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -65,8 +66,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Shop Name"
-              DTS:DTSID="{7C219902-355B-44B9-9EAC-B5D224B51464}"
+              DTS:ObjectName="Shop_Name"
+              DTS:DTSID="{F08F5514-3285-4E05-8601-40D36DF869D9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -74,8 +75,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Shop Age"
-              DTS:DTSID="{ADD8111D-ABE3-4334-9342-07B438DD7AE4}"
+              DTS:ObjectName="Shop_Age"
+              DTS:DTSID="{4C71D2E8-6B62-4A2E-A7E7-46C3B358212C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -83,8 +84,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="PC Make"
-              DTS:DTSID="{CCDAA313-051E-46E5-9C1E-45095E6FCF85}"
+              DTS:ObjectName="PC_Make"
+              DTS:DTSID="{354413C0-9B31-40AD-A0BD-15EFD123D6DD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -92,8 +93,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="PC Model"
-              DTS:DTSID="{1A57D4CE-23C4-4BF4-A94F-A3E2EF783223}"
+              DTS:ObjectName="PC_Model"
+              DTS:DTSID="{933F15ED-7F23-4CB1-96F1-F699422C15D7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -101,8 +102,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Storage Type"
-              DTS:DTSID="{EC7262E6-6179-450E-92E5-2B3D8EB54AEF}"
+              DTS:ObjectName="Storage_Type"
+              DTS:DTSID="{9F9E31B5-3F1C-4F1D-910B-EA47667CA46C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -110,8 +111,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Customer Name"
-              DTS:DTSID="{FA5A5287-E9F4-40FD-9BC0-C617832B8AEB}"
+              DTS:ObjectName="Customer_Name"
+              DTS:DTSID="{BACC1CF3-7FC8-40E6-A347-84726F0D63DB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -119,8 +120,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Customer Surname"
-              DTS:DTSID="{E3A24A74-E2E6-4F6E-B5A6-B0D2E565AB21}"
+              DTS:ObjectName="Customer_Surname"
+              DTS:DTSID="{074A6579-5F88-4477-B17F-811EF969F21B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -128,8 +129,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Customer Contact Number"
-              DTS:DTSID="{E4B1BED2-1B0E-4FAE-AFAE-C6BE56AFD7FA}"
+              DTS:ObjectName="Customer_Contact_Number"
+              DTS:DTSID="{4772EDB0-BB47-4492-9CBA-A29A79BFDCBE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -137,8 +138,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Customer Email Address"
-              DTS:DTSID="{B7B22DED-6BE0-4CD0-8E41-936573300C79}"
+              DTS:ObjectName="Customer_Email_Address"
+              DTS:DTSID="{2AE0958D-725F-42B1-BE60-7B0D979D6304}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -146,8 +147,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Sales Person Name"
-              DTS:DTSID="{5B09C78B-8A40-4BCE-965E-F3D9A5C062B5}"
+              DTS:ObjectName="Sales_Person_Name"
+              DTS:DTSID="{BF10019E-FE5A-4737-AEA7-6664E28CB324}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -155,8 +156,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Sales Person Department"
-              DTS:DTSID="{EC5ABD1B-0086-42B6-93B2-BB9D38FF2ACC}"
+              DTS:ObjectName="Sales_Person_Department"
+              DTS:DTSID="{6C811340-CED1-4B36-BD91-3D8E16999F3C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -164,8 +165,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Cost Price"
-              DTS:DTSID="{F50FFE92-070D-4A50-9CEF-8591C41D6CC0}"
+              DTS:ObjectName="Cost_Price"
+              DTS:DTSID="{EB4F853E-4564-4763-821C-427D95C8BDA4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -173,8 +174,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Sale Price"
-              DTS:DTSID="{1CC87FEB-71DB-4314-9FEF-30B5FBDE2B95}"
+              DTS:ObjectName="Sale_Price"
+              DTS:DTSID="{A763B3F4-ECA2-43E4-AEFA-D96B093DA8FB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -182,8 +183,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Payment Method"
-              DTS:DTSID="{0836D423-BBBD-4EB4-B225-88472BB060F6}"
+              DTS:ObjectName="Payment_Method"
+              DTS:DTSID="{FF3DFC5A-B0B2-4EF8-9319-EFC493E0DB10}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -191,8 +192,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Discount Amount"
-              DTS:DTSID="{4156640D-C976-4961-8B3F-6D9DE89D83EC}"
+              DTS:ObjectName="Discount_Amount"
+              DTS:DTSID="{D0B7C91C-AE2B-473F-8596-337088972BF0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -200,8 +201,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Purchase Date"
-              DTS:DTSID="{1AD6726D-F8BE-4972-9EA5-D788E66AA938}"
+              DTS:ObjectName="Purchase_Date"
+              DTS:DTSID="{AD5EFBA1-8507-4EFB-9E0C-F54C5D2AD3F2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -209,8 +210,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Ship Date"
-              DTS:DTSID="{5D317D93-3A72-421E-9C46-A1A77B4E6E9B}"
+              DTS:ObjectName="Ship_Date"
+              DTS:DTSID="{6B7EFB5C-84BE-45B2-AFDB-A0CC7DEFF751}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -218,8 +219,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Finance Amount"
-              DTS:DTSID="{C09513EE-4F6B-4B4D-BE55-D24A528C2172}"
+              DTS:ObjectName="Finance_Amount"
+              DTS:DTSID="{48575935-2727-4ECE-8801-41A920867DC9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -228,7 +229,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="RAM"
-              DTS:DTSID="{3E67D0FC-637B-41F4-8226-7EA3D262843E}"
+              DTS:DTSID="{E1155E93-4703-422F-A795-9CC31CD6B490}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -236,8 +237,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Credit Score"
-              DTS:DTSID="{168D3129-63E5-46E3-8F9A-69144EC109DC}"
+              DTS:ObjectName="Credit_Score"
+              DTS:DTSID="{0A26A8C4-7EC8-4513-8E6C-0DD8C5A31258}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -246,7 +247,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Channel"
-              DTS:DTSID="{935AC2BA-1BD6-4601-A8B1-57DC78AC1E8C}"
+              DTS:DTSID="{00E019C7-6441-4BD2-BBB0-2D27FE56FD48}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -255,7 +256,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Priority"
-              DTS:DTSID="{F9245116-6AD6-49ED-80DF-A4FE4A6F5782}"
+              DTS:DTSID="{209BEB40-A8AF-4047-89DB-BADD976E77F4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -263,8 +264,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Cost of Repairs"
-              DTS:DTSID="{4BE8BC07-7584-486A-9287-F9756CA131AB}"
+              DTS:ObjectName="Cost_of_Repairs"
+              DTS:DTSID="{F611F5D2-CE57-4972-9284-63BCD62DE349}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -272,8 +273,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Total Sales per Employee"
-              DTS:DTSID="{21B71831-7057-4DD0-BD86-BAAAE1E5B214}"
+              DTS:ObjectName="Total_Sales_per_Employee"
+              DTS:DTSID="{7E419C44-AE02-42D0-BF17-D551483F5C3E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -281,8 +282,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="PC Market Price"
-              DTS:DTSID="{66148082-19F6-4559-9F46-68B6F1F6B67A}"
+              DTS:ObjectName="PC_Market_Price"
+              DTS:DTSID="{589662FB-AA2C-49DE-A755-FEABC1F03D9E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -290,18 +291,18 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Storage Capacity"
-              DTS:DTSID="{A848FCD8-34BE-4C98-8D19-A524DA883487}"
+              DTS:ObjectName="Storage_Capacity"
+              DTS:DTSID="{6A77E587-4B9D-48B2-86CE-42E705FF3624}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:refId="Package.ConnectionManagers[csv_pc_sales_file]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{C5A107FD-D2E9-4956-A2EB-46A35EEB4E17}"
-      DTS:ObjectName="Flat File Connection Manager 1">
+      DTS:DTSID="{3D83AC17-90F0-4493-8E14-2AC45DD0851B}"
+      DTS:ObjectName="csv_pc_sales_file">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -317,82 +318,82 @@
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Continent"
-              DTS:DTSID="{424DBA77-AE0F-4B54-AA83-4DEDA5015189}"
+              DTS:DTSID="{5E24CEC9-23CC-44FE-827D-95DF758D2DFD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Country or State"
-              DTS:DTSID="{85C7E5C5-CA62-4FAE-BB05-8C7F044CC97A}"
+              DTS:DTSID="{F7218A11-097C-43B2-A705-8BCDFC1F8E2A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Province or City"
-              DTS:DTSID="{26F5311E-A475-4120-BB4D-E162A4949272}"
+              DTS:DTSID="{D32EB198-B04D-440C-B49D-A52A145F2804}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Shop Name"
-              DTS:DTSID="{5F772C65-15B3-4CC5-B1C3-89E03C090EDA}"
+              DTS:DTSID="{9E84F8FE-FAD0-4A6A-8FD4-D7FD3AC36166}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Shop Age"
-              DTS:DTSID="{DD33D8AA-4168-4F49-AF15-7E7C4F9B14B2}"
+              DTS:DTSID="{A25EC23E-9312-4EFB-A5ED-AD8D6576CAC1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="PC Make"
-              DTS:DTSID="{50291020-1386-4B4E-BA5A-0F6772C5FDF6}"
+              DTS:DTSID="{B9AAE533-2627-4F40-9CF4-12D54822E63B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="PC Model"
-              DTS:DTSID="{96DBA871-258B-4213-8F59-B0FB746DE260}"
+              DTS:DTSID="{8EF43537-F17E-4F2B-BD25-13A2CDC26681}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Storage Type"
-              DTS:DTSID="{2F5D402B-F4FF-4D97-8BEF-CDEFD35E9539}"
+              DTS:DTSID="{99C37E54-9B96-4058-8EC0-A9C21E220A0D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Customer Name"
-              DTS:DTSID="{CF62EF38-E055-45FC-99F6-407A674E1462}"
+              DTS:DTSID="{851EBAED-39DE-4F2F-B536-70F5A6E70CA2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -401,7 +402,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Customer Surname"
-              DTS:DTSID="{1437093F-ED42-47AB-8B42-AB813F187E1F}"
+              DTS:DTSID="{339D7F10-D911-4F56-B69C-53ACA3C3449A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -410,7 +411,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Customer Contact Number"
-              DTS:DTSID="{F2138B7D-F67F-4AC1-842C-246030F1E515}"
+              DTS:DTSID="{0B70CACD-2E4E-48E8-8053-D65009F2966A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -419,7 +420,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Customer Email Address"
-              DTS:DTSID="{2C6BE0F8-DCE5-422F-964B-12EE846FCB1B}"
+              DTS:DTSID="{A2BF4A7B-5233-49B5-A191-B3B5CD819759}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -428,7 +429,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Sales Person Name"
-              DTS:DTSID="{36C04FEE-F20C-4D0A-85DB-A92979F65C13}"
+              DTS:DTSID="{C321D6D2-800D-497F-9555-821E13F14C76}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -437,7 +438,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Sales Person Department"
-              DTS:DTSID="{20553838-8892-42E5-B2CE-A51E1B5F6D97}"
+              DTS:DTSID="{C16497A2-3A5E-4E22-B2E2-38F82534DDB0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -446,7 +447,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Cost Price"
-              DTS:DTSID="{9700A04E-CCB3-44E0-8ED6-4E96CBB9ECBC}"
+              DTS:DTSID="{6F49A1BC-917F-4EEA-B0A4-B58BB6A9C3C4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -455,7 +456,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Sale Price"
-              DTS:DTSID="{5A18516B-19DF-4408-8B78-23BBF0AA10FA}"
+              DTS:DTSID="{6DAE95F2-880F-4978-A150-CE74D8EB1EE6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -464,7 +465,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Payment Method"
-              DTS:DTSID="{85C2BA21-8AD0-4879-B803-B42E003846D9}"
+              DTS:DTSID="{B67C6394-BA4F-402C-9377-D968E6ABBAE3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -473,7 +474,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Discount Amount"
-              DTS:DTSID="{F8EF8C9D-796F-4888-8471-8960B229EB90}"
+              DTS:DTSID="{E3EA9296-B75A-4032-B397-1328561962F9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -482,7 +483,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Purchase Date"
-              DTS:DTSID="{B5925A67-4A8D-4B90-A36A-80CE1BFD190E}"
+              DTS:DTSID="{FEFF5BE6-4BA0-4C31-8F6C-52762E3E570B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -491,7 +492,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ship Date"
-              DTS:DTSID="{55FE617C-931E-45C7-967A-389EE8B22500}"
+              DTS:DTSID="{91422858-E9D2-4849-A973-F25B87931897}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -500,7 +501,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Finance Amount"
-              DTS:DTSID="{9C844F2C-C6EB-49C7-99DE-A2D5821CCD42}"
+              DTS:DTSID="{54AA808B-3C8B-4520-AE82-21FD26247919}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -509,7 +510,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="RAM"
-              DTS:DTSID="{FE400E33-3D0A-4BBD-A04C-E227DFD18CF6}"
+              DTS:DTSID="{B37292D4-A771-4672-8BB0-1E58EE572800}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -518,7 +519,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Credit Score"
-              DTS:DTSID="{CECF4D9F-83FE-4B0B-8935-1F1C580BA3AD}"
+              DTS:DTSID="{70D721C8-BEB1-4C64-9986-72D263BA45F2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -527,7 +528,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Channel"
-              DTS:DTSID="{AE59B576-A4C9-4963-8B9F-12EDFDCADA36}"
+              DTS:DTSID="{6960F34F-D8DB-4BD0-B443-E55407E2A3EA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -536,7 +537,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Priority"
-              DTS:DTSID="{2AEE44EA-AB8A-4C5C-BC5A-C4FD981E6BCF}"
+              DTS:DTSID="{F6A890C4-690C-40D6-9842-8AC558EA6B3E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -545,7 +546,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Cost of Repairs"
-              DTS:DTSID="{96786AEC-323D-4607-9944-7E55D29DDD0C}"
+              DTS:DTSID="{2C5CE736-1698-4E8D-B039-61B0E057C4D1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -554,7 +555,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Total Sales per Employee"
-              DTS:DTSID="{F53E41DC-027A-4D39-97C9-587D48517115}"
+              DTS:DTSID="{4EDE34E8-2623-4580-A630-596A0C59602B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -563,7 +564,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PC Market Price"
-              DTS:DTSID="{0C2DEB5D-4BB4-4D70-9D84-F31EA032A903}"
+              DTS:DTSID="{D856172A-6F50-4F0C-B8FE-307F439F0A18}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -572,7 +573,280 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Storage Capacity"
-              DTS:DTSID="{3AD82071-DDED-40B6-9B0D-71C186AD52B6}"
+              DTS:DTSID="{22CD1E84-F51B-455D-9B4D-192FD318BF78}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[flat_file_csv_connection]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{ABB22EB1-7C33-46D2-ADB1-44306674E662}"
+      DTS:ObjectName="flat_file_csv_connection">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\DELL\Desktop\pc_sales_data_warehouse_project\raw_data\raw_pc_data.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="303"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Continent"
+              DTS:DTSID="{382603AF-35D9-401D-9759-B603979A2BEF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Country_or_State"
+              DTS:DTSID="{BEFBDC01-4099-486E-B0BE-74958B901A43}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Province_or_City"
+              DTS:DTSID="{80DB325E-BB26-4FEC-8F91-B45CAC446763}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Shop_Name"
+              DTS:DTSID="{C27EA26E-1E3A-468C-BA7F-80C8B12EDEF5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Shop_Age"
+              DTS:DTSID="{30AECDCA-7FDA-4F4E-854D-B5269E18622D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PC_Make"
+              DTS:DTSID="{A4C9BE0D-D0C7-43E7-A809-A1BC3C56A2B5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PC_Model"
+              DTS:DTSID="{AE02CF2D-CBC7-40E8-9AD0-DD461741C5DA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Storage_Type"
+              DTS:DTSID="{35131D89-0988-4C43-8453-FDD1857A6F77}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer_Name"
+              DTS:DTSID="{980B75BB-94E7-43C6-8FA1-BB7FBE1BC658}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer_Surname"
+              DTS:DTSID="{64EF3CF7-8810-44C5-B366-53A533159FEA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer_Contact_Number"
+              DTS:DTSID="{2D109AEE-264C-4DB8-B98C-186CB46DB1B1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer_Email_Address"
+              DTS:DTSID="{4BE9E159-10B9-48C3-B643-8423094AC7A0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sales_Person_Name"
+              DTS:DTSID="{3A82BCD0-A533-4A12-B839-ADC291585850}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sales_Person_Department"
+              DTS:DTSID="{365CB11C-3E04-4548-B404-C8591383EA18}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cost_Price"
+              DTS:DTSID="{0498D8BA-FFCD-413D-AB03-B00040E40590}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sale_Price"
+              DTS:DTSID="{57A2DF54-F6C2-44DE-984F-BB7DDDF2A136}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Payment_Method"
+              DTS:DTSID="{1A0BEABC-3029-4A3C-B135-4C2C5F011B03}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Discount_Amount"
+              DTS:DTSID="{197B3475-86D4-42DF-8D3F-43B3E7A536ED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="145"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Purchase_Date"
+              DTS:DTSID="{B56A2CAC-458A-4CD0-9002-84566D806ECE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ship_Date"
+              DTS:DTSID="{FFD85B1C-495B-4AE4-BCA1-CAC528435BE2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Finance_Amount"
+              DTS:DTSID="{9BA53E79-6DD8-43C7-85F1-767F765307AF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RAM"
+              DTS:DTSID="{85BE8BEA-4A51-4516-A8EC-6A0D2AB30823}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Credit_Score"
+              DTS:DTSID="{DB9907DD-1E1A-41B6-A91F-F2D5A22E30CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Channel"
+              DTS:DTSID="{3CA0991E-E512-4602-BB0F-6E7084D8E814}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Priority"
+              DTS:DTSID="{8294E2D1-FC34-4CA3-BB30-0B5A16E10AF4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cost_of_Repairs"
+              DTS:DTSID="{66B28AAB-7843-42AE-B139-4BDD61635D32}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Total_Sales_per_Employee"
+              DTS:DTSID="{2CB0680F-CB2D-4EF8-9724-128FBF129838}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PC_Market_Price"
+              DTS:DTSID="{A2B782A6-7A36-46C6-B1A1-5CA613F54DCA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Storage_Capacity"
+              DTS:DTSID="{19816EA3-1B1F-41CD-AAA4-348193838D5A}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -582,26 +856,25 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Load Raw Data"
+      DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{91280107-44AB-457B-9249-FCFD2FD22B5C}"
+      DTS:DTSID="{58B16FA6-1F07-49D6-AD57-B043E8DBE83F}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Load Raw Data"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      DTS:ObjectName="Data Flow Task">
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
           version="1">
           <components>
             <component
-              refId="Package\Load Raw Data\CSV File"
+              refId="Package\Data Flow Task\raw_csv_file"
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Flat File Source"
               localeId="1033"
-              name="CSV File"
+              name="raw_csv_file"
               usesDispositions="true"
               version="1">
               <properties>
@@ -616,25 +889,24 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load Raw Data\CSV File.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  refId="Package\Data Flow Task\raw_csv_file.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[csv_pc_sales_data_file]"
+                  connectionManagerRefId="Package.ConnectionManagers[csv_pc_sales_data_file]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output]"
+                  refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output]"
                   name="Flat File Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Continent]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Continent]"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Continent]"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Continent]"
                       length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Continent]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Continent]"
                       name="Continent"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -649,454 +921,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Country or State]"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[RAM]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Country or State]"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[RAM]"
                       length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Country or State]"
-                      name="Country or State"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Province or City]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Province or City]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Province or City]"
-                      name="Province or City"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Shop Name]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Shop Name]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Shop Name]"
-                      name="Shop Name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Shop Age]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Shop Age]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Shop Age]"
-                      name="Shop Age"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[PC Make]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[PC Make]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[PC Make]"
-                      name="PC Make"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[PC Model]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[PC Model]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[PC Model]"
-                      name="PC Model"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Storage Type]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Storage Type]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Storage Type]"
-                      name="Storage Type"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Customer Name]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Customer Name]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Customer Name]"
-                      name="Customer Name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Customer Surname]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Customer Surname]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Customer Surname]"
-                      name="Customer Surname"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Customer Contact Number]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Customer Contact Number]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Customer Contact Number]"
-                      name="Customer Contact Number"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Customer Email Address]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Customer Email Address]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Customer Email Address]"
-                      name="Customer Email Address"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Sales Person Name]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Sales Person Name]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Sales Person Name]"
-                      name="Sales Person Name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Sales Person Department]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Sales Person Department]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Sales Person Department]"
-                      name="Sales Person Department"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Cost Price]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Cost Price]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Cost Price]"
-                      name="Cost Price"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Sale Price]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Sale Price]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Sale Price]"
-                      name="Sale Price"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Payment Method]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Payment Method]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Payment Method]"
-                      name="Payment Method"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Discount Amount]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Discount Amount]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Discount Amount]"
-                      name="Discount Amount"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Purchase Date]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Purchase Date]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Purchase Date]"
-                      name="Purchase Date"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Ship Date]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Ship Date]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Ship Date]"
-                      name="Ship Date"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Finance Amount]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Finance Amount]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Finance Amount]"
-                      name="Finance Amount"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[RAM]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[RAM]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[RAM]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[RAM]"
                       name="RAM"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1111,36 +943,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Credit Score]"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Channel]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Credit Score]"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Channel]"
                       length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Credit Score]"
-                      name="Credit Score"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Channel]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Channel]"
-                      length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Channel]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Channel]"
                       name="Channel"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1155,14 +965,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Priority]"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Priority]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Priority]"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Priority]"
                       length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Priority]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Priority]"
                       name="Priority"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1177,15 +987,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Cost of Repairs]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Country_or_State]"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Cost of Repairs]"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Country_or_State]"
                       length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Cost of Repairs]"
-                      name="Cost of Repairs"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Country_or_State]"
+                      name="Country_or_State"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -1199,15 +1008,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Total Sales per Employee]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Province_or_City]"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Total Sales per Employee]"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Province_or_City]"
                       length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Total Sales per Employee]"
-                      name="Total Sales per Employee"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Province_or_City]"
+                      name="Province_or_City"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -1221,15 +1029,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[PC Market Price]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Shop_Name]"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[PC Market Price]"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Shop_Name]"
                       length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[PC Market Price]"
-                      name="PC Market Price"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Shop_Name]"
+                      name="Shop_Name"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -1243,15 +1050,448 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Storage Capacity]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Shop_Age]"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Storage Capacity]"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Shop_Age]"
                       length="50"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Storage Capacity]"
-                      name="Storage Capacity"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Shop_Age]"
+                      name="Shop_Age"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[PC_Make]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[PC_Make]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[PC_Make]"
+                      name="PC_Make"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[PC_Model]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[PC_Model]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[PC_Model]"
+                      name="PC_Model"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Storage_Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Storage_Type]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Storage_Type]"
+                      name="Storage_Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Customer_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Customer_Name]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Customer_Name]"
+                      name="Customer_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Customer_Surname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Customer_Surname]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Customer_Surname]"
+                      name="Customer_Surname"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Customer_Contact_Number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Customer_Contact_Number]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Customer_Contact_Number]"
+                      name="Customer_Contact_Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Customer_Email_Address]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Customer_Email_Address]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Customer_Email_Address]"
+                      name="Customer_Email_Address"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Sales_Person_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Sales_Person_Name]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Sales_Person_Name]"
+                      name="Sales_Person_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Sales_Person_Department]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Sales_Person_Department]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Sales_Person_Department]"
+                      name="Sales_Person_Department"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Cost_Price]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Cost_Price]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Cost_Price]"
+                      name="Cost_Price"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Sale_Price]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Sale_Price]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Sale_Price]"
+                      name="Sale_Price"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Payment_Method]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Payment_Method]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Payment_Method]"
+                      name="Payment_Method"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Discount_Amount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Discount_Amount]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Discount_Amount]"
+                      name="Discount_Amount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Purchase_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Purchase_Date]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Purchase_Date]"
+                      name="Purchase_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Ship_Date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Ship_Date]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Ship_Date]"
+                      name="Ship_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Finance_Amount]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Finance_Amount]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Finance_Amount]"
+                      name="Finance_Amount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Credit_Score]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Credit_Score]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Credit_Score]"
+                      name="Credit_Score"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Cost_of_Repairs]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Cost_of_Repairs]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Cost_of_Repairs]"
+                      name="Cost_of_Repairs"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Total_Sales_per_Employee]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Total_Sales_per_Employee]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Total_Sales_per_Employee]"
+                      name="Total_Sales_per_Employee"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[PC_Market_Price]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[PC_Market_Price]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[PC_Market_Price]"
+                      name="PC_Market_Price"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Storage_Capacity]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Storage_Capacity]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Storage_Capacity]"
+                      name="Storage_Capacity"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -1268,203 +1508,203 @@
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Continent]"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Continent]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Continent" />
                     <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Country or State]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Country or State" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Province or City]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Province or City" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Shop Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Shop Name" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Shop Age]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Shop Age" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[PC Make]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="PC Make" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[PC Model]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="PC Model" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Storage Type]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Storage Type" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Customer Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Customer Name" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Customer Surname]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Customer Surname" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Customer Contact Number]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Customer Contact Number" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Customer Email Address]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Customer Email Address" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Sales Person Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Sales Person Name" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Sales Person Department]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Sales Person Department" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Cost Price]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Cost Price" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Sale Price]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Sale Price" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Payment Method]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Payment Method" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Discount Amount]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Discount Amount" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Purchase Date]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Purchase Date" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Ship Date]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Ship Date" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Finance Amount]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Finance Amount" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[RAM]"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[RAM]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="RAM" />
                     <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Credit Score]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Credit Score" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Channel]"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Channel]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Channel" />
                     <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Priority]"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Priority]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Priority" />
                     <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Cost of Repairs]"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Country_or_State]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name="Cost of Repairs" />
+                      name="Country_or_State" />
                     <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Total Sales per Employee]"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Province_or_City]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name="Total Sales per Employee" />
+                      name="Province_or_City" />
                     <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[PC Market Price]"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Shop_Name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name="PC Market Price" />
+                      name="Shop_Name" />
                     <externalMetadataColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].ExternalColumns[Storage Capacity]"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Shop_Age]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name="Storage Capacity" />
+                      name="Shop_Age" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[PC_Make]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PC_Make" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[PC_Model]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PC_Model" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Storage_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Storage_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Customer_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Customer_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Customer_Surname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Customer_Surname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Customer_Contact_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Customer_Contact_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Customer_Email_Address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Customer_Email_Address" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Sales_Person_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Sales_Person_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Sales_Person_Department]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Sales_Person_Department" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Cost_Price]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Cost_Price" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Sale_Price]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Sale_Price" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Payment_Method]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Payment_Method" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Discount_Amount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Discount_Amount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Purchase_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Purchase_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Ship_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Ship_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Finance_Amount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Finance_Amount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Credit_Score]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Credit_Score" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Cost_of_Repairs]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Cost_of_Repairs" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Total_Sales_per_Employee]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Total_Sales_per_Employee" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[PC_Market_Price]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PC_Market_Price" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].ExternalColumns[Storage_Capacity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Storage_Capacity" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Error Output]"
+                  refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Error Output]"
                   isErrorOut="true"
                   name="Flat File Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       codePage="1252"
                       dataType="text"
                       description="Flat File Source Error Output Column"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       name="Flat File Source Error Output Column" />
                     <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1473,11 +1713,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Load Raw Data\raw_pc_data"
+              refId="Package\Data Flow Task\Staging_database"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="raw_pc_data"
+              name="Staging_database"
               usesDispositions="true"
               version="4">
               <properties>
@@ -1530,7 +1770,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load Raw Data\raw_pc_data.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\Staging_database.Connections[OleDbConnection]"
                   connectionManagerID="{491E7757-6EED-4130-9BA8-0900B8756E6E}:external"
                   connectionManagerRefId="Project.ConnectionManagers[Mzii.stg_pc_sales]"
                   description="The OLE DB runtime connection used to access the database."
@@ -1538,442 +1778,370 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input]"
+                  refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Continent]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Continent]"
+                      cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Continent"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Continent]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Continent]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Continent]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Continent]" />
                     <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Country or State]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Country or State"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Country or State]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Country or State]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Province or City]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Province or City"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Province or City]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Province or City]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Shop Name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Shop Name"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Shop Name]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Shop Name]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Shop Age]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Shop Age"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Shop Age]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Shop Age]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[PC Make]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="PC Make"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[PC Make]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[PC Make]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[PC Model]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="PC Model"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[PC Model]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[PC Model]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Storage Type]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Storage Type"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Storage Type]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Storage Type]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Customer Name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Customer Name"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Customer Name]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Customer Name]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Customer Surname]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Customer Surname"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Customer Surname]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Customer Surname]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Customer Contact Number]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Customer Contact Number"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Customer Contact Number]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Customer Contact Number]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Customer Email Address]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Customer Email Address"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Customer Email Address]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Customer Email Address]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Sales Person Name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Sales Person Name"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Sales Person Name]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Sales Person Name]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Sales Person Department]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Sales Person Department"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Sales Person Department]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Sales Person Department]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Cost Price]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Cost Price"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Cost Price]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Cost Price]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Sale Price]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Sale Price"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Sale Price]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Sale Price]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Payment Method]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Payment Method"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Payment Method]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Payment Method]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Discount Amount]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Discount Amount"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Discount Amount]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Discount Amount]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Purchase Date]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Purchase Date"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Purchase Date]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Purchase Date]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Ship Date]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Ship Date"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Ship Date]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Ship Date]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Finance Amount]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Finance Amount"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Finance Amount]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Finance Amount]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[RAM]"
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[RAM]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="RAM"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[RAM]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[RAM]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[RAM]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[RAM]" />
                     <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Credit Score]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Credit Score"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Credit Score]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Credit Score]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Channel]"
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Channel]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Channel"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Channel]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Channel]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Channel]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Channel]" />
                     <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Priority]"
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Priority]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Priority"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Priority]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Priority]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Priority]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Priority]" />
                     <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Cost of Repairs]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Country_or_State]"
+                      cachedDataType="wstr"
                       cachedLength="50"
-                      cachedName="Cost of Repairs"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Cost of Repairs]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Cost of Repairs]" />
+                      cachedName="Country_or_State"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Country_or_State]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Country_or_State]" />
                     <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Total Sales per Employee]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Province_or_City]"
+                      cachedDataType="wstr"
                       cachedLength="50"
-                      cachedName="Total Sales per Employee"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Total Sales per Employee]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Total Sales per Employee]" />
+                      cachedName="Province_or_City"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Province_or_City]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Province_or_City]" />
                     <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[PC Market Price]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Shop_Name]"
+                      cachedDataType="wstr"
                       cachedLength="50"
-                      cachedName="PC Market Price"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[PC Market Price]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[PC Market Price]" />
+                      cachedName="Shop_Name"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Shop_Name]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Shop_Name]" />
                     <inputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].Columns[Storage Capacity]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Shop_Age]"
+                      cachedDataType="wstr"
                       cachedLength="50"
-                      cachedName="Storage Capacity"
-                      externalMetadataColumnId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Storage Capacity]"
-                      lineageId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output].Columns[Storage Capacity]" />
+                      cachedName="Shop_Age"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Shop_Age]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Shop_Age]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[PC_Make]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PC_Make"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[PC_Make]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[PC_Make]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[PC_Model]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PC_Model"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[PC_Model]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[PC_Model]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Storage_Type]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Storage_Type"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Storage_Type]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Storage_Type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Customer_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Customer_Name"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Customer_Name]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Customer_Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Customer_Surname]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Customer_Surname"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Customer_Surname]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Customer_Surname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Customer_Contact_Number]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Customer_Contact_Number"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Customer_Contact_Number]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Customer_Contact_Number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Customer_Email_Address]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Customer_Email_Address"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Customer_Email_Address]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Customer_Email_Address]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Sales_Person_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Sales_Person_Name"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Sales_Person_Name]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Sales_Person_Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Sales_Person_Department]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Sales_Person_Department"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Sales_Person_Department]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Sales_Person_Department]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Cost_Price]"
+                      cachedDataType="i4"
+                      cachedName="Cost_Price"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Cost_Price]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Cost_Price]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Sale_Price]"
+                      cachedDataType="i4"
+                      cachedName="Sale_Price"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Sale_Price]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Sale_Price]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Payment_Method]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Payment_Method"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Payment_Method]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Payment_Method]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Discount_Amount]"
+                      cachedDataType="i4"
+                      cachedName="Discount_Amount"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Discount_Amount]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Discount_Amount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Ship_Date]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Ship_Date"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Ship_Date]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Ship_Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Finance_Amount]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Finance_Amount"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Finance_Amount]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Finance_Amount]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Credit_Score]"
+                      cachedDataType="i4"
+                      cachedName="Credit_Score"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Credit_Score]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Credit_Score]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Cost_of_Repairs]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Cost_of_Repairs"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Cost_of_Repairs]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Cost_of_Repairs]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Total_Sales_per_Employee]"
+                      cachedDataType="i4"
+                      cachedName="Total_Sales_per_Employee"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Total_Sales_per_Employee]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Total_Sales_per_Employee]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[PC_Market_Price]"
+                      cachedDataType="i4"
+                      cachedName="PC_Market_Price"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[PC_Market_Price]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[PC_Market_Price]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].Columns[Storage_Capacity]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Storage_Capacity"
+                      externalMetadataColumnId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Storage_Capacity]"
+                      lineageId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output].Columns[Storage_Capacity]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Continent]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Continent]"
+                      dataType="wstr"
                       length="50"
                       name="Continent" />
                     <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Country or State]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Country or State" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Province or City]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Province or City" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Shop Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Shop Name" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Shop Age]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Shop Age" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[PC Make]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="PC Make" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[PC Model]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="PC Model" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Storage Type]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Storage Type" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Customer Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Customer Name" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Customer Surname]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Customer Surname" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Customer Contact Number]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Customer Contact Number" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Customer Email Address]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Customer Email Address" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Sales Person Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Sales Person Name" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Sales Person Department]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Sales Person Department" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Cost Price]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Cost Price" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Sale Price]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Sale Price" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Payment Method]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Payment Method" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Discount Amount]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Discount Amount" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Purchase Date]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Purchase Date" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Ship Date]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Ship Date" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Finance Amount]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Finance Amount" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[RAM]"
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[RAM]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="RAM" />
                     <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Credit Score]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Credit Score" />
-                    <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Channel]"
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Channel]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Channel" />
                     <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Priority]"
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Priority]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Priority" />
                     <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Cost of Repairs]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Country_or_State]"
+                      dataType="wstr"
                       length="50"
-                      name="Cost of Repairs" />
+                      name="Country_or_State" />
                     <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Total Sales per Employee]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Province_or_City]"
+                      dataType="wstr"
                       length="50"
-                      name="Total Sales per Employee" />
+                      name="Province_or_City" />
                     <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[PC Market Price]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Shop_Name]"
+                      dataType="wstr"
                       length="50"
-                      name="PC Market Price" />
+                      name="Shop_Name" />
                     <externalMetadataColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input].ExternalColumns[Storage Capacity]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Shop_Age]"
+                      dataType="wstr"
                       length="50"
-                      name="Storage Capacity" />
+                      name="Shop_Age" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[PC_Make]"
+                      dataType="wstr"
+                      length="50"
+                      name="PC_Make" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[PC_Model]"
+                      dataType="wstr"
+                      length="50"
+                      name="PC_Model" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Storage_Type]"
+                      dataType="wstr"
+                      length="50"
+                      name="Storage_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Customer_Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Customer_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Customer_Surname]"
+                      dataType="wstr"
+                      length="50"
+                      name="Customer_Surname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Customer_Contact_Number]"
+                      dataType="wstr"
+                      length="50"
+                      name="Customer_Contact_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Customer_Email_Address]"
+                      dataType="wstr"
+                      length="50"
+                      name="Customer_Email_Address" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Sales_Person_Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Sales_Person_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Sales_Person_Department]"
+                      dataType="wstr"
+                      length="50"
+                      name="Sales_Person_Department" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Cost_Price]"
+                      dataType="i4"
+                      name="Cost_Price" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Sale_Price]"
+                      dataType="i4"
+                      name="Sale_Price" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Payment_Method]"
+                      dataType="wstr"
+                      length="50"
+                      name="Payment_Method" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Discount_Amount]"
+                      dataType="i4"
+                      name="Discount_Amount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Ship_Date]"
+                      dataType="wstr"
+                      length="50"
+                      name="Ship_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Finance_Amount]"
+                      dataType="wstr"
+                      length="50"
+                      name="Finance_Amount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Credit_Score]"
+                      dataType="i4"
+                      name="Credit_Score" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Cost_of_Repairs]"
+                      dataType="wstr"
+                      length="50"
+                      name="Cost_of_Repairs" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Total_Sales_per_Employee]"
+                      dataType="i4"
+                      name="Total_Sales_per_Employee" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[PC_Market_Price]"
+                      dataType="i4"
+                      name="PC_Market_Price" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Storage_Capacity]"
+                      dataType="wstr"
+                      length="50"
+                      name="Storage_Capacity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input].ExternalColumns[Purchase_Date]"
+                      dataType="dbTimeStamp"
+                      name="Purchase_Date" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load Raw Data\raw_pc_data.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Data Flow Task\Staging_database.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\Staging_database.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Raw Data\raw_pc_data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\Staging_database.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Raw Data\raw_pc_data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\Staging_database.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Raw Data\raw_pc_data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\Staging_database.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1984,10 +2152,10 @@
           </components>
           <paths>
             <path
-              refId="Package\Load Raw Data.Paths[Flat File Source Output]"
-              endId="Package\Load Raw Data\raw_pc_data.Inputs[OLE DB Destination Input]"
+              refId="Package\Data Flow Task.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task\Staging_database.Inputs[OLE DB Destination Input]"
               name="Flat File Source Output"
-              startId="Package\Load Raw Data\CSV File.Outputs[Flat File Source Output]" />
+              startId="Package\Data Flow Task\raw_csv_file.Outputs[Flat File Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2006,51 +2174,51 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Load Raw Data"
-          TopLeft="99.9999945362412,46.7999996745586" />
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,5.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Load Raw Data">
+    design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="119.2,41.6"
-          Id="Package\Load Raw Data\CSV File"
-          TopLeft="123.333326594697,54.5999996203184" />
+          Size="136,41.6"
+          Id="Package\Data Flow Task\raw_csv_file"
+          TopLeft="208.333321950503,51.1333329777585" />
         <NodeLayout
-          Size="137.6,41.6"
-          Id="Package\Load Raw Data\raw_pc_data"
-          TopLeft="209.999988526106,206.266665232314" />
+          Size="162.4,41.6"
+          Id="Package\Data Flow Task\Staging_database"
+          TopLeft="363.333313481676,247.866664943033" />
         <EdgeLayout
-          Id="Package\Load Raw Data.Paths[Flat File Source Output]"
-          TopLeft="182.933326594697,96.1999996203184">
+          Id="Package\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="276.333321950503,92.7333329777586">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="95.8666619314089,110.066665611996"
+              EndConnector="168.199991531174,155.133331965274"
               Start="0,0"
-              End="95.8666619314089,102.566665611996">
+              End="168.199991531174,147.633331965274">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.0333328059978" />
+                    End="0,73.5666659826371" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,51.0333328059978"
-                    Point2="0,55.0333328059978"
-                    Point3="4,55.0333328059978" />
+                    Point1="0,73.5666659826371"
+                    Point2="0,77.5666659826371"
+                    Point3="4,77.5666659826371" />
                   <mssgle:LineSegment
-                    End="91.8666619314089,55.0333328059978" />
+                    End="164.199991531174,77.5666659826371" />
                   <mssgle:CubicBezierSegment
-                    Point1="91.8666619314089,55.0333328059978"
-                    Point2="95.8666619314089,55.0333328059978"
-                    Point3="95.8666619314089,59.0333328059978" />
+                    Point1="164.199991531174,77.5666659826371"
+                    Point2="168.199991531174,77.5666659826371"
+                    Point3="168.199991531174,81.5666659826371" />
                   <mssgle:LineSegment
-                    End="95.8666619314089,102.566665611996" />
+                    End="168.199991531174,147.633331965274" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2063,7 +2231,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Raw Data\raw_pc_data">
+    design-time-name="Package\Data Flow Task\Staging_database">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

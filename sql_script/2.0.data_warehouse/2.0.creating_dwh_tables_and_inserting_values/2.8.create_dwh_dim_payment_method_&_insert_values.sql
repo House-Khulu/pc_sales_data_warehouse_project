@@ -2,19 +2,19 @@
 --Checking dinstinct Payment method
 -----------------------------------
 SELECT DISTINCT [payment_method] 
-FROM [stg_pc_sales].[dbo].[raw_pc_data];
+FROM [stg_pc_sales].[dbo].[clean_dim_payment_method];
 
 
 /* ================================================
-   CREATE stg_dim_payment_method TABLE (SAFE RERUN)
-   Database : stg_pc_sales
+   CREATE dwh_dim_payment_method TABLE (SAFE RERUN)
+   Database : dwh_pc_sales
    Schema   : dbo
    ================================================ */
 
    
-IF OBJECT_ID('[stg_pc_sales].[dbo].[stg_dim_payment_method]', 'U') IS NULL
+IF OBJECT_ID('[dwh_pc_sales].[dbo].[dwh_dim_payment_method]', 'U') IS NULL
 BEGIN
-    CREATE TABLE [stg_pc_sales].[dbo].[stg_dim_payment_method](
+    CREATE TABLE [dwh_pc_sales].[dbo].[dwh_dim_payment_method](
     [payment_key] INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
 	[payment_method] VARCHAR (50) NOT NULL,
     [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
@@ -23,19 +23,19 @@ BEGIN
 END;
 
 /* ===============================================
-   INSERT INTO stg_dim_payment_method (SAFE RERUN)
+   INSERT INTO dwh_dim_payment_method (SAFE RERUN)
    =============================================== */
 
-INSERT INTO [stg_pc_sales].[dbo].[stg_dim_payment_method]([payment_method])
+INSERT INTO [dwh_pc_sales].[dbo].[dwh_dim_payment_method]([payment_method])
 
 SELECT DISTINCT
-           r.payment_method
-      FROM [stg_pc_sales].[dbo].[raw_pc_data] r
+           clean.payment_method
+      FROM [stg_pc_sales].[dbo].[clean_dim_payment_method] clean
    WHERE NOT EXISTS
 (
       SELECT 1
-    FROM [stg_pc_sales].[dbo].[stg_dim_payment_method] pm
-    WHERE r.payment_method = pm.payment_method
+    FROM [dwh_pc_sales].[dbo].[dwh_dim_payment_method] dwh
+    WHERE clean.payment_method = dwh.payment_method
 
  );
  GO
@@ -44,4 +44,4 @@ SELECT DISTINCT
 -----------
 --VIEW DATA
 -----------
-SELECT * FROM [stg_pc_sales].[dbo].[stg_dim_payment_method];
+SELECT * FROM [dwh_pc_sales].[dbo].[dwh_dim_payment_method];

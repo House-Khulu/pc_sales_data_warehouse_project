@@ -33,15 +33,15 @@ INSERT INTO [stg_pc_sales].[dbo].[clean_dim_shop](
 			[shop_age])
 
 SELECT DISTINCT 
-            r.shop_name,
-		    r.shop_age
-FROM [stg_pc_sales].[dbo].[stg_dim_shop] r
+            stg.shop_name,
+		    stg.shop_age
+FROM [stg_pc_sales].[dbo].[stg_dim_shop] stg
 WHERE NOT EXISTS
 (
     SELECT 1
-    FROM [stg_pc_sales].[dbo].[clean_dim_shop] sh
-    WHERE r.shop_name = sh.shop_name
-    AND   r.shop_age = sh.shop_age
+    FROM [stg_pc_sales].[dbo].[clean_dim_shop] clean
+    WHERE stg.shop_name = clean.shop_name
+    AND   stg.shop_age = clean.shop_age
 
 );
 GO

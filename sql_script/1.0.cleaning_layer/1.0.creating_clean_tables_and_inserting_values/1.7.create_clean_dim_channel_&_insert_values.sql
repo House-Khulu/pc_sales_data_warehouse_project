@@ -31,19 +31,19 @@ INSERT INTO [stg_pc_sales].[dbo].[clean_dim_channel](
 
 SELECT DISTINCT
 
-         r.channel
-    FROM [stg_pc_sales].[dbo].[stg_dim_channel] r
+         stg.channel
+    FROM [stg_pc_sales].[dbo].[stg_dim_channel] stg
 WHERE NOT EXISTS
 (
   SELECT 1
-    FROM [stg_pc_sales].[dbo].[clean_dim_channel] c
-    WHERE  r.channel =  C.channel
+    FROM [stg_pc_sales].[dbo].[clean_dim_channel] clean
+    WHERE  stg.channel =  Clean.channel
 );
 GO
 
 ------------
 --VIEW DATA
 ------------
-SELECT * FROM [stg_pc_sales].[dbo].[stg_dim_channel];
+SELECT * FROM [stg_pc_sales].[dbo].[clean_dim_channel];
 
 

@@ -1,19 +1,19 @@
 ----------------------------
 --Checking dinstinct channel
 ----------------------------
-SELECT DISTINCT [channel] FROM [stg_pc_sales].[dbo].[raw_pc_data];
+SELECT DISTINCT [channel] FROM [stg_pc_sales].[dbo].[clean_dim_channel];
 
 
 /* =========================================
-   CREATE stg_dim_channel TABLE (SAFE RERUN)
-   Database : stg_pc_sales
+   CREATE dwh_dim_channel TABLE (SAFE RERUN)
+   Database : dwh_pc_sales
    Schema   : dbo
    ========================================= */
 
 
-IF OBJECT_ID('[stg_pc_sales].[dbo].[stg_dim_channel]', 'U') IS NULL
+IF OBJECT_ID('[dwh_pc_sales].[dbo].[dwh_dim_channel]', 'U') IS NULL
 BEGIN
-    CREATE TABLE [stg_pc_sales].[dbo].[stg_dim_channel](
+    CREATE TABLE [dwh_pc_sales].[dbo].[dwh_dim_channel](
     [channel_key] INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
 	[channel] VARCHAR (50) NOT NULL,
     [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
@@ -23,27 +23,27 @@ END;
 
 
 /* =========================================
-   INSERT INTO stg_dim_channel (SAFE RERUN)
+   INSERT INTO dwh_dim_channel (SAFE RERUN)
    ========================================= */
 
-INSERT INTO [stg_pc_sales].[dbo].[stg_dim_channel](
+INSERT INTO [dwh_pc_sales].[dbo].[dwh_dim_channel](
             [channel])
 
 SELECT DISTINCT
 
-         r.channel
-    FROM [stg_pc_sales].[dbo].[raw_pc_data] r
+         clean.channel
+    FROM [stg_pc_sales].[dbo].[raw_pc_data] clean
 WHERE NOT EXISTS
 (
   SELECT 1
-    FROM [stg_pc_sales].[dbo].[stg_dim_channel] c
-    WHERE  r.channel =  C.channel
+    FROM [dwh_pc_sales].[dbo].[dwh_dim_channel] dwh
+    WHERE  clean.channel =  dwh.channel
 );
 GO
 
 ------------
 --VIEW DATA
 ------------
-SELECT * FROM [stg_pc_sales].[dbo].[stg_dim_channel];
+SELECT * FROM [dwh_pc_sales].[dbo].[dwh_dim_channel];
 
 

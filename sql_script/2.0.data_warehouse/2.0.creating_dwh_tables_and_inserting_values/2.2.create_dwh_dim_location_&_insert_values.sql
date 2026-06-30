@@ -5,19 +5,19 @@ SELECT DISTINCT [Continent]
       ,[Country_or_State]
       ,[Province_or_City]
       
-  FROM [stg_pc_sales].[dbo].[raw_pc_data]
- 
+  FROM [stg_pc_sales].[dbo].[clean_dim_location]
+
 
 /* =========================================
-   CREATE stg_dim_location TABLE (SAFE RERUN)
-   Database : stg_pc_sales
+   CREATE dwh_dim_location TABLE (SAFE RERUN)
+   Database : dwh_pc_sales
    Schema   : dbo
    ========================================= */
 
-IF OBJECT_ID('[stg_pc_sales].[dbo].[stg_dim_location]', 'U') IS NULL
+IF OBJECT_ID('[dwh_pc_sales].[dbo].[dwh_dim_location]', 'U') IS NULL
 BEGIN
 
-    CREATE TABLE [stg_pc_sales].[dbo].[stg_dim_location] (
+    CREATE TABLE [dwh_pc_sales].[dbo].[dwh_dim_location] (
 
         [location_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
         [continent] VARCHAR(100) NOT NULL,
@@ -30,10 +30,10 @@ BEGIN
 END;
 
 /* =========================================
-   INSERT INTO stg_dim_location (SAFE RERUN)
+   INSERT INTO dwh_dim_location (SAFE RERUN)
    ========================================= */
 
-INSERT INTO [stg_pc_sales].[dbo].[stg_dim_location]
+INSERT INTO [dwh_pc_sales].[dbo].[dwh_dim_location]
 (
     [continent],
     [country_or_state],
@@ -41,22 +41,22 @@ INSERT INTO [stg_pc_sales].[dbo].[stg_dim_location]
 )
 
 SELECT DISTINCT
-      r.continent,
-      r.country_or_state,
-      r.province_or_city
-FROM [stg_pc_sales].[dbo].[raw_pc_data] r
+      clean.continent,
+      clean.country_or_state,
+      clean.province_or_city
+FROM [stg_pc_sales].[dbo].[clean_dim_location] clean
 WHERE NOT EXISTS
 (
     SELECT 1
-    FROM [stg_pc_sales].[dbo].[stg_dim_location] l
-    WHERE l.continent = r.continent
-      AND l.country_or_state = r.country_or_state
-      AND l.province_or_city = r.province_or_city
+    FROM [dwh_pc_sales].[dbo].[dwh_dim_location] dwh
+    WHERE clean.continent = dwh.continent
+      AND clean.country_or_state = dwh.country_or_state
+      AND clean.province_or_city = dwh.province_or_city
 );
 GO
 
 -----------------------
---View stg_dim_location
+--View dwh_dim_location
 -----------------------
 
-SELECT * FROM [stg_pc_sales].[dbo].[stg_dim_location];
+SELECT * FROM [dwh_pc_sales].[dbo].[dwh_dim_location];

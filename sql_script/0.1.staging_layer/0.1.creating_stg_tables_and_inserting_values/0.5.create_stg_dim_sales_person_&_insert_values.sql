@@ -7,11 +7,11 @@ SELECT DISTINCT
   FROM [stg_pc_sales].[dbo].[raw_pc_data]
 
 
-/* =========================================
+/* ==============================================
    CREATE stg_dim_sales_person TABLE (SAFE RERUN)
    Database : stg_pc_sales
    Schema   : dbo
-   ========================================= */
+   ============================================== */
 
 IF OBJECT_ID('[stg_pc_sales].[dbo].[stg_dim_sales_person]', 'U') IS NULL
 BEGIN
@@ -24,9 +24,9 @@ BEGIN
 );
 END;
 
-/* =========================================
+/* =============================================
    INSERT INTO stg_dim_sales_person (SAFE RERUN)
-   ========================================= */
+   =============================================*/
 
 INSERT INTO [stg_pc_sales].[dbo].[stg_dim_sales_person](
             [sales_person_name],

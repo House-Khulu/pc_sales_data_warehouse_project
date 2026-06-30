@@ -47,18 +47,18 @@ INSERT INTO [stg_pc_sales].[dbo].[clean_dim_customer] (
 )
 SELECT DISTINCT
       
-      s.customer_name,
-      s.customer_surname,
-      s.customer_contact_number,
-      s.customer_email_address
-FROM [stg_pc_sales].[dbo].[stg_dim_customer] s
+      stg.customer_name,
+      stg.customer_surname,
+      stg.customer_contact_number,
+      stg.customer_email_address
+FROM [stg_pc_sales].[dbo].[stg_dim_customer] stg
 WHERE NOT EXISTS
 (
     SELECT 1
-    FROM [stg_pc_sales].[dbo].[clean_dim_customer] c
-    WHERE c.customer_name = s.customer_name
-    AND   c.customer_surname = s.customer_surname
-    AND   c.customer_email_address =  s.customer_email_address
+    FROM [stg_pc_sales].[dbo].[clean_dim_customer] clean
+    WHERE clean.customer_name = stg.customer_name
+    AND   clean.customer_surname = stg.customer_surname
+    AND   clean.customer_email_address =  stg.customer_email_address
 );
 GO
 

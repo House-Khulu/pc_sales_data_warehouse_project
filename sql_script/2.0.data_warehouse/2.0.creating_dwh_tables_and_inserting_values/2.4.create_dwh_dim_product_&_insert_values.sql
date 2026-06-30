@@ -7,18 +7,18 @@ SELECT DISTINCT
       ,[Storage_Type]
       ,[RAM]
       ,[Storage_Capacity]
-  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  FROM [stg_pc_sales].[dbo].[clean_dim_product]
 
 
 /* =========================================
-   CREATE stg_dim_product TABLE (SAFE RERUN)
-   Database : stg_pc_sales
+   CREATE dwh_dim_product TABLE (SAFE RERUN)
+   Database : dwh_pc_sales
    Schema   : dbo
    ========================================= */
 
-IF OBJECT_ID('[stg_pc_sales].[dbo].[stg_dim_product]', 'U') IS NULL
+IF OBJECT_ID('[dwh_pc_sales].[dbo].[dwh_dim_product]', 'U') IS NULL
 BEGIN
-    CREATE TABLE [stg_pc_sales].[dbo].[stg_dim_product](
+    CREATE TABLE [dwh_pc_sales].[dbo].[dwh_dim_product](
     [product_key] INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
 	[pc_make] VARCHAR (50) NOT NULL,
 	[pc_model] VARCHAR (50) NOT NULL,
@@ -32,10 +32,10 @@ END;
 
 
 /* =========================================
-   INSERT INTO stg_dim_product (SAFE RERUN)
+   INSERT INTO dwh_dim_product (SAFE RERUN)
    ========================================= */
 
-INSERT INTO [stg_pc_sales].[dbo].[stg_dim_product](
+INSERT INTO [dwh_pc_sales].[dbo].[dwh_dim_product](
             [pc_make],
 			[pc_model],
 			[storage_type],
@@ -45,26 +45,26 @@ INSERT INTO [stg_pc_sales].[dbo].[stg_dim_product](
 )
 
 SELECT DISTINCT
-            r.pc_make,
-		    r.pc_model,
-		    r.storage_type,
-		    r.RAM,
-	        r.storage_capacity
-FROM [stg_pc_sales].[dbo].[raw_pc_data] r
+            clean.pc_make,
+		    clean.pc_model,
+		    clean.storage_type,
+		    clean.RAM,
+	        clean.storage_capacity
+FROM [stg_pc_sales].[dbo].[clean_dim_product] clean
 WHERE NOT EXISTS
 (
     SELECT 1
-    FROM [stg_pc_sales].[dbo].[stg_dim_product] p
-	WHERE r.pc_make = P.pc_make
-	AND   r.pc_model = P.pc_model
-	AND   r.storage_type = P.storage_type
-	AND   r.RAM = P.RAM
-	AND   r.storage_capacity = P.storage_capacity
+    FROM [dwh_pc_sales].[dbo].[dwh_dim_product] dwh
+	WHERE clean.pc_make = dwh.pc_make
+	AND   clean.pc_model = dwh.pc_model
+	AND   clean.storage_type = dwh.storage_type
+	AND   clean.RAM = dwh.RAM
+	AND   clean.storage_capacity = dwh.storage_capacity
 );
 GO
 
 -----------------------
---View stg_dim_product
+--View dwh_dim_product
 -----------------------
 
-SELECT * FROM [stg_pc_sales].[dbo].[stg_dim_product];
+SELECT * FROM [dwh_pc_sales].[dbo].[dwh_dim_product];

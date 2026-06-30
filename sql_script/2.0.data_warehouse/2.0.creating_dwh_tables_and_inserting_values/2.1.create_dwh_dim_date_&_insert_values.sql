@@ -1,13 +1,13 @@
 /* =========================================
-   CREATE stg_dim_date TABLE
-   Database : stg_pc_sales
+   CREATE dwh_dim_date TABLE
+   Database : dwh_pc_sales
    Schema   : dbo
    ========================================= */
 
-IF OBJECT_ID('[stg_pc_sales].[dbo].[stg_dim_date]', 'U') IS NULL
+IF OBJECT_ID('[dwh_pc_sales].[dbo].[dwh_dim_date]', 'U') IS NULL
 BEGIN
 
-    CREATE TABLE [stg_pc_sales].[dbo].[stg_dim_date] (
+    CREATE TABLE [dwh_pc_sales].[dbo].[dwh_dim_date] (
 
         date_key            INT PRIMARY KEY,      -- YYYYMMDD
         full_date          DATE NOT NULL,
@@ -32,7 +32,7 @@ BEGIN
 
         is_quarter_start   BIT,
         is_quarter_end     BIT
-
+        
     );
 
 END;
@@ -56,10 +56,10 @@ WITH date_cte AS (
 
 
 /* =========================================
-   LOAD stg_dim_date (SAFE FOR RE-RUNS)
+   LOAD dwh_dim_date (SAFE FOR RE-RUNS)
    ========================================= */
 
-INSERT INTO [stg_pc_sales].[dbo].[stg_dim_date] (
+INSERT INTO [dwh_pc_sales].[dbo].[dwh_dim_date] (
 
     date_key,
     full_date,
@@ -128,7 +128,7 @@ FROM date_cte
 
 WHERE NOT EXISTS (
     SELECT 1
-    FROM [stg_pc_sales].[dbo].[stg_dim_date] dd
+    FROM [dwh_pc_sales].[dbo].[dwh_dim_date] dd
     WHERE dd.full_date = date_cte.d
 )
 
@@ -143,7 +143,7 @@ SELECT
     COUNT(*) AS total_dates,
     MIN(full_date) AS start_date,
     MAX(full_date) AS end_date
-FROM [stg_pc_sales].[dbo].[stg_dim_date];
+FROM [dwh_pc_sales].[dbo].[dwh_dim_date];
 
 
 /* =========================================
@@ -151,5 +151,5 @@ FROM [stg_pc_sales].[dbo].[stg_dim_date];
    ========================================= */
 
 SELECT *
-FROM [stg_pc_sales].[dbo].[stg_dim_date]
+FROM [dwh_pc_sales].[dbo].[dwh_dim_date]
 ORDER BY full_date;

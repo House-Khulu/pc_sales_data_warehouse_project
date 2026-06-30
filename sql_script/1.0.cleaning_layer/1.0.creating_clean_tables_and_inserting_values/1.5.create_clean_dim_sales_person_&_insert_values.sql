@@ -7,11 +7,11 @@ SELECT DISTINCT
   FROM [stg_pc_sales].[dbo].[stg_dim_sales_person]
 
 
-/* =========================================
+/* ================================================
    CREATE clean_dim_sales_person TABLE (SAFE RERUN)
    Database : stg_pc_sales
    Schema   : dbo
-   ========================================= */
+   =============================================== */
 
 IF OBJECT_ID('[stg_pc_sales].[dbo].[clean_dim_sales_person]', 'U') IS NULL
 BEGIN
@@ -34,15 +34,15 @@ INSERT INTO [stg_pc_sales].[dbo].[clean_dim_sales_person](
 
 SELECT DISTINCT 
 
-             s.sales_person_name,
-		     s.sales_person_department
-FROM [stg_pc_sales].[dbo].[stg_dim_sales_person] s
+             stg.sales_person_name,
+		     stg.sales_person_department
+FROM [stg_pc_sales].[dbo].[stg_dim_sales_person] stg
 WHERE NOT EXISTS
 (
     SELECT 1
-    FROM [stg_pc_sales].[dbo].[clean_dim_sales_person] c
-    WHERE c.sales_person_name = s.sales_person_name
-    AND   c.sales_person_department = s.sales_person_department
+    FROM [stg_pc_sales].[dbo].[clean_dim_sales_person] clean
+    WHERE clean.sales_person_name = stg.sales_person_name
+    AND   clean.sales_person_department = stg.sales_person_department
 
 );
 GO

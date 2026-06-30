@@ -29,13 +29,13 @@ END;
 INSERT INTO [stg_pc_sales].[dbo].[clean_dim_payment_method]([payment_method])
 
 SELECT DISTINCT
-           r.payment_method
-      FROM [stg_pc_sales].[dbo].[stg_dim_payment_method] r
+           stg.payment_method
+      FROM [stg_pc_sales].[dbo].[stg_dim_payment_method] stg
    WHERE NOT EXISTS
 (
       SELECT 1
-    FROM [stg_pc_sales].[dbo].[clean_dim_payment_method] pm
-    WHERE r.payment_method = pm.payment_method
+    FROM [stg_pc_sales].[dbo].[clean_dim_payment_method] clean
+    WHERE stg.payment_method = clean.payment_method
 
  );
  GO

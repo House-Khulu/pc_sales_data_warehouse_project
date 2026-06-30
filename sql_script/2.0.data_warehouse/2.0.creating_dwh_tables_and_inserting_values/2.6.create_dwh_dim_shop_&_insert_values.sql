@@ -4,17 +4,17 @@
 SELECT DISTINCT
        [Shop_Name]
       ,[Shop_Age]  
-  FROM [stg_pc_sales].[dbo].[raw_pc_data]
+  FROM [stg_pc_sales].[dbo].[clean_dim_shop]
 
 
 /* =========================================
-   CREATE stg_dim_shop TABLE (SAFE RERUN)
-   Database : stg_pc_sales
+   CREATE dwh_dim_shop TABLE (SAFE RERUN)
+   Database : dwh_pc_sales
    Schema   : dbo
    ========================================= */
-IF OBJECT_ID('[stg_pc_sales].[dbo].[stg_dim_shop]', 'U') IS NULL
+IF OBJECT_ID('[dwh_pc_sales].[dbo].[dwh_dim_shop]', 'U') IS NULL
 BEGIN
-    CREATE TABLE [stg_pc_sales].[dbo].[stg_dim_shop](
+    CREATE TABLE [dwh_pc_sales].[dbo].[dwh_dim_shop](
     [shop_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	[shop_name] VARCHAR  (100) NOT NULL,
 	[shop_age] VARCHAR  (100) NOT NULL,
@@ -25,23 +25,23 @@ END;
 
 
 /* =====================================
-   INSERT INTO stg_dim_shop (SAFE RERUN)
+   INSERT INTO dwh_dim_shop (SAFE RERUN)
    ===================================== */
 
-INSERT INTO [stg_pc_sales].[dbo].[stg_dim_shop](
+INSERT INTO [dwh_pc_sales].[dbo].[dwh_dim_shop](
             [shop_name],
 			[shop_age])
 
 SELECT DISTINCT 
-            r.shop_name,
-		    r.shop_age
-FROM [stg_pc_sales].[dbo].[raw_pc_data] r
+            clean.shop_name,
+		    clean.shop_age
+FROM [stg_pc_sales].[dbo].[raw_pc_data] clean
 WHERE NOT EXISTS
 (
     SELECT 1
-    FROM [stg_pc_sales].[dbo].[stg_dim_shop] sh
-    WHERE r.shop_name = sh.shop_name
-    AND   r.shop_age = sh.shop_age
+    FROM [dwh_pc_sales].[dbo].[dwh_dim_shop] dwh
+    WHERE clean.shop_name = dwh.shop_name
+    AND   clean.shop_age = dwh.shop_age
 
 );
 GO
@@ -50,4 +50,4 @@ GO
 --View Data
 -----------
 
-SELECT * FROM [stg_pc_sales].[dbo].[stg_dim_shop]
+SELECT * FROM [dwh_pc_sales].[dbo].[dwh_dim_shop]
